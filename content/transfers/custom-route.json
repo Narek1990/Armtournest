@@ -10,7 +10,12 @@
     "ru": "Выберите пункты отправления и прибытия.",
     "hy": "Ընտրեք մեկնման և ժամանման վայրերը։"
   },
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Mount_Aragats_from_Gyumri-Yerevan_road_(3).jpg/1200px-Mount_Aragats_from_Gyumri-Yerevan_road_(3).jpg",
+  "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Lake%20Sevan%20with%20Sevanavank.jpg?width=1280",
   "price": null,
-  "status": "published"
+  "status": "published",
+  "imageCredit": {
+    "label": "Lake Sevan",
+    "source": "https://commons.wikimedia.org/wiki/File:Lake_Sevan_with_Sevanavank.jpg",
+    "license": "See linked Wikimedia Commons file page"
+  }
 }
