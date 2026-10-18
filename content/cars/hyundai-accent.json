@@ -15,9 +15,9 @@
   "fuel": "petrol",
   "doors": 5,
   "images": [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/2018_Hyundai_Accent_(RB6_MY18)_Sport_sedan_(2018-05-05)_01.jpg/1200px-2018_Hyundai_Accent_(RB6_MY18)_Sport_sedan_(2018-05-05)_01.jpg"
+    "https://commons.wikimedia.org/wiki/Special:FilePath/Hyundai%20Accent%20Sedan%20RB.jpg?width=1280"
   ],
-  "imageUsage": "Representative photograph of the named car model, not a verified picture of an actual rental fleet vehicle.",
+  "imageUsage": "Representative photograph of the named vehicle model; not a confirmed rental fleet vehicle",
   "pricing": {
     "currency": "AMD",
     "dailyRate": 15.999,
@@ -44,5 +44,10 @@
       "ru": "Аренда Hyundai Accent в Армении",
       "hy": "Hyundai Accent մեքենայի վարձույթ Հայաստանում"
     }
+  },
+  "imageCredit": {
+    "label": "Hyundai Accent Sedan RB",
+    "source": "https://commons.wikimedia.org/wiki/File:Hyundai_Accent_Sedan_RB.jpg",
+    "license": "See linked Wikimedia Commons file page"
   }
 }
