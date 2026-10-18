@@ -15,9 +15,9 @@
   "fuel": "petrol",
   "doors": 5,
   "images": [
-    "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=900&q=80"
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Toyota_RAV4_DHB_XA50.JPG/1200px-Toyota_RAV4_DHB_XA50.JPG"
   ],
-  "imageUsage": "Illustrative image; actual fleet vehicle photo to be supplied by operator",
+  "imageUsage": "Representative photograph of the named car model, not a verified picture of an actual rental fleet vehicle.",
   "pricing": {
     "currency": "AMD",
     "dailyRate": 28000,

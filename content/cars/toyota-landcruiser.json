@@ -15,9 +15,9 @@
   "fuel": "diesel",
   "doors": 5,
   "images": [
-    "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=900&q=80"
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/2018_Toyota_Land_Cruiser_200_Executive_Lounge_white_front.jpg/1200px-2018_Toyota_Land_Cruiser_200_Executive_Lounge_white_front.jpg"
   ],
-  "imageUsage": "Illustrative image; actual fleet vehicle photo to be supplied by operator",
+  "imageUsage": "Representative photograph of the named car model, not a verified picture of an actual rental fleet vehicle.",
   "pricing": {
     "currency": "AMD",
     "dailyRate": 59000,

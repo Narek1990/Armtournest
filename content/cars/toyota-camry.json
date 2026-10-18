@@ -15,9 +15,9 @@
   "fuel": "hybrid",
   "doors": 5,
   "images": [
-    "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=900&q=80"
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/2018_Toyota_Camry.jpg/1200px-2018_Toyota_Camry.jpg"
   ],
-  "imageUsage": "Illustrative image; actual fleet vehicle photo to be supplied by operator",
+  "imageUsage": "Representative photograph of the named car model, not a verified picture of an actual rental fleet vehicle.",
   "pricing": {
     "currency": "AMD",
     "dailyRate": 23000,
