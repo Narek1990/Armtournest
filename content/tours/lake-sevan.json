@@ -5,7 +5,7 @@
   "featured": true,
   "category": "group",
   "destination": "sevan",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Lake_Sevan_with_Sevanavank.jpg/1200px-Lake_Sevan_with_Sevanavank.jpg",
+  "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Lake%20Sevan%20with%20Sevanavank.jpg?width=1280",
   "gallery": [],
   "name": {
     "en": "Lake Sevan & Sevanavank",
@@ -86,5 +86,10 @@
       "ru": "Бирюзовая вода, панорамы и средневековый монастырь у озера.",
       "hy": "Կապույտ ջրեր, համայնապատկերներ և միջնադարյան վանք լճի ափին։"
     }
+  },
+  "imageCredit": {
+    "label": "Lake Sevan and Sevanavank",
+    "source": "https://commons.wikimedia.org/wiki/File:Lake_Sevan_with_Sevanavank.jpg",
+    "license": "See linked Wikimedia Commons file page"
   }
 }
