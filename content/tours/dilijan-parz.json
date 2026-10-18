@@ -5,7 +5,7 @@
   "featured": true,
   "category": "group",
   "destination": "dilijan",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Dilijan.National.Park-_Lake_Parz.jpg/1200px-Dilijan.National.Park-_Lake_Parz.jpg",
+  "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Parz.Lake%2001.jpg?width=1280",
   "gallery": [],
   "name": {
     "en": "Dilijan & Lake Parz",
@@ -86,5 +86,10 @@
       "ru": "Зелёные леса, свежий горный воздух и тихое озеро.",
       "hy": "Կանաչ անտառներ, լեռնային մաքուր օդ և խաղաղ լճային տեսարաններ։"
     }
+  },
+  "imageCredit": {
+    "label": "Lake Parz, Dilijan",
+    "source": "https://commons.wikimedia.org/wiki/File:Parz.Lake_01.jpg",
+    "license": "See linked Wikimedia Commons file page"
   }
 }
