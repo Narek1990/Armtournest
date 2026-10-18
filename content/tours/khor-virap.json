@@ -5,10 +5,8 @@
   "featured": true,
   "category": "group",
   "destination": "khor",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Khor_Virap_with_Ararat.jpg/1200px-Khor_Virap_with_Ararat.jpg",
-  "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Khor_Virap_Armenia_Ararat.jpg/960px-Khor_Virap_Armenia_Ararat.jpg"
-  ],
+  "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Khor%20Virap%20with%20Ararat%20in%20the%20background.jpg?width=1280",
+  "gallery": [],
   "name": {
     "en": "Khor Virap & Mount Ararat",
     "ru": "Хор Вирап и гора Арарат",
@@ -88,5 +86,10 @@
       "ru": "Поездка к знаменитому монастырю с невероятным видом на Арарат.",
       "hy": "Ճամփորդություն դեպի նշանավոր վանք՝ Արարատի անմոռանալի տեսարաններով։"
     }
+  },
+  "imageCredit": {
+    "label": "Khor Virap and Mount Ararat",
+    "source": "https://commons.wikimedia.org/wiki/File:Khor_Virap_with_Ararat_in_the_background.jpg",
+    "license": "See linked Wikimedia Commons file page"
   }
 }
