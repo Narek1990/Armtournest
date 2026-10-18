@@ -10,7 +10,12 @@
     "ru": "Индивидуальный трансфер с подтверждением условий поездки.",
     "hy": "Անհատական տրանսֆեր՝ պայմանները նախապես համաձայնեցնելով։"
   },
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Natural_landscape_from_Lori_Province_01.jpg/1200px-Natural_landscape_from_Lori_Province_01.jpg",
+  "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Tbilisi%2C%20Old%20town%2C%20Georgia.jpg?width=1280",
   "price": null,
-  "status": "published"
+  "status": "published",
+  "imageCredit": {
+    "label": "Old town Tbilisi",
+    "source": "https://commons.wikimedia.org/wiki/File:Tbilisi,_Old_town,_Georgia.jpg",
+    "license": "See linked Wikimedia Commons file page"
+  }
 }
