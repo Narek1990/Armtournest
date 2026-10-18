@@ -10,6 +10,11 @@
     "ru": "Уютные гостевые дома и отдых на природе.",
     "hy": "Հարմարավետ հյուրատներ և բնության գրկում հանգիստ։"
   },
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Dilijan_Tufenkian.jpg/960px-Dilijan_Tufenkian.jpg",
-  "status": "published"
+  "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Dilijan%20Tufenkian.jpg?width=1280",
+  "status": "published",
+  "imageCredit": {
+    "label": "Dilijan Tufenkian hotel",
+    "source": "https://commons.wikimedia.org/wiki/File:Dilijan_Tufenkian.jpg",
+    "license": "See linked Wikimedia Commons file page"
+  }
 }
