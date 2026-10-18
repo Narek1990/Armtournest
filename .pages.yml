@@ -2,6 +2,7 @@ media:
   input: media
   output: /media
   rename: safe
+  extensions: [jpg, jpeg, png, webp]
   categories:
   - image
 content:
@@ -32,8 +33,11 @@ content:
         label: Հայերեն
         type: string
     - name: logo
-      label: Upload brand logo (transparent PNG / SVG)
+      label: Upload brand logo (transparent PNG or WebP)
       type: image
+      description: "JPG, PNG or WebP only. Upload max 8 MiB and 8192 px per side / 36 MP. Publishing compresses to 800x800 px / 150 KiB. Use landscape photos for tour/car covers."
+      options:
+        extensions: [jpg, jpeg, png, webp]
   - name: navigation
     label: Navigation order
     type: string
@@ -164,10 +168,15 @@ content:
   - name: image
     label: Cover image
     type: image
+    description: "JPG, PNG or WebP only. Upload max 8 MiB and 8192 px per side / 36 MP. Publishing compresses to 1600x1100 px / 450 KiB. Use landscape photos for tour/car covers."
+    options:
+      extensions: [jpg, jpeg, png, webp]
   - name: gallery
     label: Tour gallery
     type: image
+    description: "JPG, PNG or WebP only. Upload max 8 MiB and 8192 px per side / 36 MP. Publishing compresses to 1600x1100 px / 450 KiB. Use landscape photos for tour/car covers."
     options:
+      extensions: [jpg, jpeg, png, webp]
       multiple:
         max: 12
   - name: name
@@ -412,7 +421,9 @@ content:
   - name: images
     label: Vehicle photos
     type: image
+    description: "JPG, PNG or WebP only. Upload max 8 MiB and 8192 px per side / 36 MP. Publishing compresses to 1600x1100 px / 450 KiB. Use landscape photos for tour/car covers."
     options:
+      extensions: [jpg, jpeg, png, webp]
       multiple:
         max: 12
   - name: imageUsage
@@ -549,6 +560,9 @@ content:
   - name: image
     label: Cover photo
     type: image
+    description: "JPG, PNG or WebP only. Upload max 8 MiB and 8192 px per side / 36 MP. Publishing compresses to 1600x1100 px / 450 KiB. Use landscape photos for tour/car covers."
+    options:
+      extensions: [jpg, jpeg, png, webp]
   - name: price
     label: Optional starting price (AMD)
     type: number
@@ -608,6 +622,9 @@ content:
   - name: image
     label: Cover photo
     type: image
+    description: "JPG, PNG or WebP only. Upload max 8 MiB and 8192 px per side / 36 MP. Publishing compresses to 1600x1100 px / 450 KiB. Use landscape photos for tour/car covers."
+    options:
+      extensions: [jpg, jpeg, png, webp]
   - name: price
     label: Optional starting price (AMD)
     type: number
@@ -620,6 +637,9 @@ content:
   - name: heroImage
     label: Hero background
     type: image
+    description: "JPG, PNG or WebP only. Upload max 8 MiB and 8192 px per side / 36 MP. Publishing compresses to 1920x1080 px / 650 KiB. Use landscape photos for tour/car covers."
+    options:
+      extensions: [jpg, jpeg, png, webp]
   - name: headline
     label: Hero headline
     type: object
@@ -689,6 +709,9 @@ content:
     - name: image
       label: Service tile image
       type: image
+      description: "JPG, PNG or WebP only. Upload max 8 MiB and 8192 px per side / 36 MP. Publishing compresses to 1600x1100 px / 450 KiB. Use landscape photos for tour/car covers."
+      options:
+        extensions: [jpg, jpeg, png, webp]
   - name: why
     label: 3 reasons to book
     type: object
@@ -851,6 +874,9 @@ content:
   - name: heroImage
     label: Page header background image
     type: image
+    description: "JPG, PNG or WebP only. Upload max 8 MiB and 8192 px per side / 36 MP. Publishing compresses to 1920x1080 px / 650 KiB. Use landscape photos for tour/car covers."
+    options:
+      extensions: [jpg, jpeg, png, webp]
   - name: copy
     label: Page texts by language
     type: object
@@ -916,6 +942,9 @@ content:
   - name: heroImage
     label: Page header background image
     type: image
+    description: "JPG, PNG or WebP only. Upload max 8 MiB and 8192 px per side / 36 MP. Publishing compresses to 1920x1080 px / 650 KiB. Use landscape photos for tour/car covers."
+    options:
+      extensions: [jpg, jpeg, png, webp]
   - name: copy
     label: Page texts by language
     type: object
@@ -968,6 +997,9 @@ content:
   - name: heroImage
     label: Page header background image
     type: image
+    description: "JPG, PNG or WebP only. Upload max 8 MiB and 8192 px per side / 36 MP. Publishing compresses to 1920x1080 px / 650 KiB. Use landscape photos for tour/car covers."
+    options:
+      extensions: [jpg, jpeg, png, webp]
   - name: copy
     label: Page texts by language
     type: object
@@ -1007,6 +1039,9 @@ content:
   - name: heroImage
     label: Page header background image
     type: image
+    description: "JPG, PNG or WebP only. Upload max 8 MiB and 8192 px per side / 36 MP. Publishing compresses to 1920x1080 px / 650 KiB. Use landscape photos for tour/car covers."
+    options:
+      extensions: [jpg, jpeg, png, webp]
   - name: copy
     label: Page texts by language
     type: object
@@ -1059,6 +1094,9 @@ content:
   - name: heroImage
     label: Page header background image
     type: image
+    description: "JPG, PNG or WebP only. Upload max 8 MiB and 8192 px per side / 36 MP. Publishing compresses to 1920x1080 px / 650 KiB. Use landscape photos for tour/car covers."
+    options:
+      extensions: [jpg, jpeg, png, webp]
   - name: copy
     label: Page texts by language
     type: object
@@ -1111,6 +1149,9 @@ content:
   - name: heroImage
     label: Page header background image
     type: image
+    description: "JPG, PNG or WebP only. Upload max 8 MiB and 8192 px per side / 36 MP. Publishing compresses to 1920x1080 px / 650 KiB. Use landscape photos for tour/car covers."
+    options:
+      extensions: [jpg, jpeg, png, webp]
   - name: copy
     label: Page texts by language
     type: object

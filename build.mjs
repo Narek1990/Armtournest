@@ -1,5 +1,6 @@
 import { readFileSync, writeFileSync, readdirSync, mkdirSync, copyFileSync, cpSync } from 'node:fs';
 import { join, dirname } from 'node:path';
+import { optimizeCmsImages } from './optimize-images.mjs';
 const root=process.cwd();
 const json=(path)=>JSON.parse(readFileSync(join(root,path),'utf8'));
 const list=(folder)=>readdirSync(join(root,'content',folder)).filter(f=>f.endsWith('.json')).sort().map(f=>json('content/'+folder+'/'+f));
@@ -19,10 +20,11 @@ for(const category of ['tours','cars']){
  }
 }
 mkdirSync(join(root,'dist'),{recursive:true});
+await optimizeCmsImages(root,data);
 mkdirSync(join(root,'dist/content'),{recursive:true});
 writeFileSync(join(root,'dist/content/runtime.json'),JSON.stringify(data));
 cpSync(join(root,'assets'),join(root,'dist/assets'),{recursive:true});
-cpSync(join(root,'media'),join(root,'dist/media'),{recursive:true});
+// CMS originals stay in GitHub; only compressed and validated files ship.
 // Create single self-contained HTML for fast deploys and CDN cache consistency.
 let html=readFileSync(join(root,'index.html'),'utf8');
 const css=readFileSync(join(root,'styles.css'),'utf8');
