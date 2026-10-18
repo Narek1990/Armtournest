@@ -23,19 +23,19 @@
   "services": [
     {
       "id": "tours",
-      "image": "https://images.pexels.com/photos/11885453/pexels-photo-11885453.jpeg?auto=compress&cs=tinysrgb&w=1000"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Khor_Virap_with_Ararat.jpg/1200px-Khor_Virap_with_Ararat.jpg"
     },
     {
       "id": "transfers",
-      "image": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1000&q=80"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Zvartnots_Airport_in_Yerevan.jpg/1200px-Zvartnots_Airport_in_Yerevan.jpg"
     },
     {
       "id": "cars",
-      "image": "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=1000&q=80"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Toyota_RAV4_DHB_XA50.JPG/1200px-Toyota_RAV4_DHB_XA50.JPG"
     },
     {
       "id": "hotels",
-      "image": "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=1000&q=80"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Dilijan_Tufenkian.jpg/1200px-Dilijan_Tufenkian.jpg"
     }
   ],
   "why": {
