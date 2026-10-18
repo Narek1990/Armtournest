@@ -5,10 +5,8 @@
   "featured": true,
   "category": "group",
   "destination": "dilijan",
-  "image": "https://images.pexels.com/photos/29206207/pexels-photo-29206207.jpeg?auto=compress&cs=tinysrgb&w=1050",
-  "gallery": [
-    "https://images.pexels.com/photos/29206207/pexels-photo-29206207.jpeg?auto=compress&cs=tinysrgb&w=1050"
-  ],
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Dilijan.National.Park-_Lake_Parz.jpg/1200px-Dilijan.National.Park-_Lake_Parz.jpg",
+  "gallery": [],
   "name": {
     "en": "Dilijan & Lake Parz",
     "ru": "Дилижан и озеро Парз",

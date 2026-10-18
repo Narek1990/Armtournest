@@ -5,10 +5,8 @@
   "featured": true,
   "category": "group",
   "destination": "sevan",
-  "image": "https://images.pexels.com/photos/17589704/pexels-photo-17589704.jpeg?auto=compress&cs=tinysrgb&w=1050",
-  "gallery": [
-    "https://images.pexels.com/photos/17589704/pexels-photo-17589704.jpeg?auto=compress&cs=tinysrgb&w=1050"
-  ],
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Lake_Sevan_with_Sevanavank.jpg/1200px-Lake_Sevan_with_Sevanavank.jpg",
+  "gallery": [],
   "name": {
     "en": "Lake Sevan & Sevanavank",
     "ru": "Озеро Севан и Севанаванк",

@@ -5,9 +5,10 @@
   "featured": true,
   "category": "group",
   "destination": "garni",
-  "image": "https://images.pexels.com/photos/20446169/pexels-photo-20446169.jpeg?auto=compress&cs=tinysrgb&w=1050",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Garni_Temple%2C_Garni%2C_Armenia.jpg/1200px-Garni_Temple%2C_Garni%2C_Armenia.jpg",
   "gallery": [
-    "https://images.pexels.com/photos/20446169/pexels-photo-20446169.jpeg?auto=compress&cs=tinysrgb&w=1050"
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Geghard_Monastery%2C_Armenia.jpg/1200px-Geghard_Monastery%2C_Armenia.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Symphony_of_Stones%2C_Armenia.jpg/1200px-Symphony_of_Stones%2C_Armenia.jpg"
   ],
   "name": {
     "en": "Garni, Geghard & Stone Symphony",
