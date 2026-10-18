@@ -5,10 +5,8 @@
   "featured": false,
   "category": "private",
   "destination": "noravank",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Monastery_Noravank.jpg/1200px-Monastery_Noravank.jpg",
-  "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Noravank_Armenia.jpg/1200px-Noravank_Armenia.jpg"
-  ],
+  "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Noravank%20monastery.jpg?width=1280",
+  "gallery": [],
   "name": {
     "en": "Private Noravank & Areni",
     "ru": "Индивидуальный тур Нораванк и Арени",
@@ -88,5 +86,10 @@
       "ru": "Спокойная индивидуальная поездка к красным скалам и винодельням Арени.",
       "hy": "Հանգիստ անհատական տուր՝ կարմիր ժայռերով և Արենիի գինեգործական վայրերով։"
     }
+  },
+  "imageCredit": {
+    "label": "Noravank Monastery",
+    "source": "https://commons.wikimedia.org/wiki/File:Noravank_monastery.jpg",
+    "license": "See linked Wikimedia Commons file page"
   }
 }
