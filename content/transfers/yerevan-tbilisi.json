@@ -1,0 +1,16 @@
+{
+  "id": "yerevan-tbilisi",
+  "name": {
+    "en": "Yerevan ⇄ Tbilisi",
+    "ru": "Ереван ⇄ Тбилиси",
+    "hy": "Երևան ⇄ Թբիլիսի"
+  },
+  "summary": {
+    "en": "Private intercity transfer, with route details confirmed before departure.",
+    "ru": "Индивидуальный трансфер с подтверждением условий поездки.",
+    "hy": "Անհատական տրանսֆեր՝ պայմանները նախապես համաձայնեցնելով։"
+  },
+  "image": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=900&q=80",
+  "price": null,
+  "status": "published"
+}

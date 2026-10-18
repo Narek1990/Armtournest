@@ -1,0 +1,2830 @@
+media:
+  input: media
+  output: /media
+  rename: safe
+  categories:
+  - image
+content:
+- name: website
+  label: Website settings & contacts
+  type: file
+  path: content/site.json
+  format: json
+  fields:
+  - name: brand
+    label: Brand identity
+    type: object
+    fields:
+    - name: name
+      label: Company name
+      type: string
+    - name: tagline
+      label: Brand slogan
+      type: object
+      fields:
+      - name: en
+        label: English
+        type: string
+      - name: ru
+        label: Русский
+        type: string
+      - name: hy
+        label: Հայերեն
+        type: string
+    - name: logo
+      label: Upload brand logo (transparent PNG / SVG)
+      type: image
+  - name: navigation
+    label: Navigation order
+    type: string
+    list: true
+  - name: contacts
+    label: Contact & social channels
+    type: object
+    fields:
+    - name: phone
+      label: Public phone number
+      type: string
+    - name: whatsapp
+      label: WhatsApp phone digits (without +)
+      type: string
+    - name: email
+      label: Public email
+      type: string
+    - name: address
+      label: Address
+      type: object
+      fields:
+      - name: en
+        label: English
+        type: string
+      - name: ru
+        label: Русский
+        type: string
+      - name: hy
+        label: Հայերեն
+        type: string
+    - name: social
+      label: Social profile links
+      type: object
+      fields:
+      - name: facebook
+        label: Facebook URL
+        type: string
+      - name: instagram
+        label: Instagram URL
+        type: string
+  - name: settings
+    label: Site configuration
+    type: object
+    fields:
+    - name: defaultLanguage
+      label: Default language
+      type: select
+      options:
+        values:
+        - en
+        - ru
+        - hy
+    - name: languages
+      label: Published languages
+      type: string
+      list: true
+    - name: defaultCurrency
+      label: Currency
+      type: select
+      options:
+        values:
+        - AMD
+    - name: currencyOptions
+      label: Supported currencies
+      type: string
+      list: true
+    - name: bookingMode
+      label: Booking mode
+      type: select
+      options:
+        values:
+        - enquiry
+    - name: demoPrices
+      label: Display disclaimer for sample prices
+      type: boolean
+    - name: timezone
+      label: Timezone
+      type: string
+- name: tour-catalogue
+  label: Tours — add / edit / publish
+  type: collection
+  path: content/tours
+  format: json
+  filename: '{id}.json'
+  view:
+    primary: id
+    fields:
+    - id
+    - status
+    - featured
+    - pricing.from
+    search:
+    - id
+    - name.en
+    sort:
+    - id
+  fields:
+  - name: id
+    label: Unique slug (lowercase, no spaces)
+    type: string
+    required: true
+    pattern: ^[a-z0-9]+(?:-[a-z0-9]+)*$
+  - name: slug
+    label: Public slug
+    type: string
+  - name: status
+    label: Publication status
+    type: select
+    options:
+      values:
+      - published
+      - draft
+      - archived
+  - name: featured
+    label: Feature on homepage
+    type: boolean
+  - name: category
+    label: Tour type
+    type: select
+    options:
+      values:
+      - group
+      - private
+      - outgoing
+  - name: destination
+    label: Destination code
+    type: string
+  - name: image
+    label: Cover image
+    type: image
+  - name: gallery
+    label: Tour gallery
+    type: image
+    options:
+      multiple:
+        max: 12
+  - name: name
+    label: Tour title
+    type: object
+    fields:
+    - name: en
+      label: English
+      type: string
+    - name: ru
+      label: Русский
+      type: string
+    - name: hy
+      label: Հայերեն
+      type: string
+  - name: summary
+    label: Description
+    type: object
+    fields:
+    - name: en
+      label: English
+      type: text
+    - name: ru
+      label: Русский
+      type: text
+    - name: hy
+      label: Հայերեն
+      type: text
+  - name: itinerary
+    label: Itinerary stops
+    type: object
+    list: true
+    fields:
+    - name: order
+      label: Order
+      type: number
+    - name: title
+      label: Stop title
+      type: object
+      fields:
+      - name: en
+        label: English
+        type: string
+      - name: ru
+        label: Русский
+        type: string
+      - name: hy
+        label: Հայերեն
+        type: string
+  - name: pricing
+    label: Tour pricing
+    type: object
+    fields:
+    - name: currency
+      label: Currency
+      type: select
+      options:
+        values:
+        - AMD
+        - USD
+        - EUR
+    - name: from
+      label: Starting price (per unit)
+      type: number
+    - name: unit
+      label: Price per
+      type: select
+      options:
+        values:
+        - person
+        - group
+    - name: isIndicative
+      label: Illustrative price (turn off when real)
+      type: boolean
+  - name: durationHours
+    label: Duration in hours
+    type: number
+  - name: departureCity
+    label: Departure city
+    type: string
+  - name: languages
+    label: Guide languages
+    type: select
+    options:
+      values:
+      - en
+      - ru
+      - hy
+      multiple: true
+  - name: included
+    label: Included items
+    type: object
+    list: true
+    fields:
+    - name: en
+      label: English
+      type: string
+    - name: ru
+      label: Русский
+      type: string
+    - name: hy
+      label: Հայերեն
+      type: string
+  - name: excluded
+    label: Excluded items
+    type: object
+    list: true
+    fields:
+    - name: en
+      label: English
+      type: string
+    - name: ru
+      label: Русский
+      type: string
+    - name: hy
+      label: Հայերեն
+      type: string
+  - name: seo
+    label: SEO metadata
+    type: object
+    fields:
+    - name: title
+      label: SEO title
+      type: object
+      fields:
+      - name: en
+        label: English
+        type: string
+      - name: ru
+        label: Русский
+        type: string
+      - name: hy
+        label: Հայերեն
+        type: string
+    - name: description
+      label: SEO description
+      type: object
+      fields:
+      - name: en
+        label: English
+        type: text
+      - name: ru
+        label: Русский
+        type: text
+      - name: hy
+        label: Հայերեն
+        type: text
+- name: car-fleet
+  label: Cars — add / edit / publish
+  type: collection
+  path: content/cars
+  format: json
+  filename: '{id}.json'
+  view:
+    primary: id
+    fields:
+    - id
+    - status
+    - pricing.dailyRate
+    - category
+    search:
+    - id
+    - name.en
+    sort:
+    - id
+  fields:
+  - name: id
+    label: Unique slug
+    type: string
+    required: true
+    pattern: ^[a-z0-9]+(?:-[a-z0-9]+)*$
+  - name: slug
+    label: Public slug
+    type: string
+  - name: status
+    label: Publication status
+    type: select
+    options:
+      values:
+      - published
+      - draft
+      - archived
+  - name: name
+    label: Vehicle name
+    type: object
+    fields:
+    - name: en
+      label: English
+      type: string
+    - name: ru
+      label: Русский
+      type: string
+    - name: hy
+      label: Հայերեն
+      type: string
+  - name: category
+    label: Vehicle class
+    type: select
+    options:
+      values:
+      - suv
+      - sedan
+      - compact
+      - minivan
+      - luxury
+      - 4x4
+  - name: transmission
+    label: Transmission
+    type: select
+    options:
+      values:
+      - automatic
+      - manual
+  - name: drive
+    label: Drive
+    type: select
+    options:
+      values:
+      - AWD
+      - 4WD
+      - 2WD
+      - FWD
+      - RWD
+  - name: seats
+    label: Seats
+    type: number
+  - name: bags
+    label: Luggage
+    type: number
+  - name: fuel
+    label: Fuel
+    type: select
+    options:
+      values:
+      - petrol
+      - diesel
+      - hybrid
+      - electric
+  - name: doors
+    label: Doors
+    type: number
+  - name: images
+    label: Vehicle photos
+    type: image
+    options:
+      multiple:
+        max: 12
+  - name: imageUsage
+    label: Image rights / operator note
+    type: text
+  - name: pricing
+    label: Daily rental pricing
+    type: object
+    fields:
+    - name: currency
+      label: Currency
+      type: select
+      options:
+        values:
+        - AMD
+        - USD
+        - EUR
+    - name: dailyRate
+      label: Price per day
+      type: number
+    - name: minimumDays
+      label: Minimum days
+      type: number
+    - name: securityDeposit
+      label: Security deposit
+      type: number
+    - name: isIndicative
+      label: Illustrative price
+      type: boolean
+  - name: pickupLocations
+    label: Pickup locations
+    type: string
+    list: true
+  - name: features
+    label: Features
+    type: string
+    list: true
+  - name: description
+    label: Vehicle description
+    type: object
+    fields:
+    - name: en
+      label: English
+      type: text
+    - name: ru
+      label: Русский
+      type: text
+    - name: hy
+      label: Հայերեն
+      type: text
+  - name: seo
+    label: SEO metadata
+    type: object
+    fields:
+    - name: title
+      label: SEO title
+      type: object
+      fields:
+      - name: en
+        label: English
+        type: string
+      - name: ru
+        label: Русский
+        type: string
+      - name: hy
+        label: Հայերեն
+        type: string
+    - name: description
+      label: SEO description
+      type: object
+      fields:
+      - name: en
+        label: English
+        type: text
+      - name: ru
+        label: Русский
+        type: text
+      - name: hy
+        label: Հայերեն
+        type: text
+- name: transfers
+  label: Transfers
+  type: collection
+  path: content/transfers
+  format: json
+  filename: '{id}.json'
+  view:
+    primary: id
+    fields:
+    - id
+    - status
+    search:
+    - id
+  fields:
+  - name: id
+    label: Unique slug
+    type: string
+    required: true
+    pattern: ^[a-z0-9]+(?:-[a-z0-9]+)*$
+  - name: status
+    label: Publication status
+    type: select
+    options:
+      values:
+      - published
+      - draft
+      - archived
+  - name: name
+    label: Service name
+    type: object
+    fields:
+    - name: en
+      label: English
+      type: string
+    - name: ru
+      label: Русский
+      type: string
+    - name: hy
+      label: Հայերեն
+      type: string
+  - name: summary
+    label: Service description
+    type: object
+    fields:
+    - name: en
+      label: English
+      type: text
+    - name: ru
+      label: Русский
+      type: text
+    - name: hy
+      label: Հայերեն
+      type: text
+  - name: image
+    label: Cover photo
+    type: image
+  - name: price
+    label: Optional starting price (AMD)
+    type: number
+- name: hotels
+  label: Hotels / stays
+  type: collection
+  path: content/hotels
+  format: json
+  filename: '{id}.json'
+  view:
+    primary: id
+    fields:
+    - id
+    - status
+    search:
+    - id
+  fields:
+  - name: id
+    label: Unique slug
+    type: string
+    required: true
+    pattern: ^[a-z0-9]+(?:-[a-z0-9]+)*$
+  - name: status
+    label: Publication status
+    type: select
+    options:
+      values:
+      - published
+      - draft
+      - archived
+  - name: name
+    label: Service name
+    type: object
+    fields:
+    - name: en
+      label: English
+      type: string
+    - name: ru
+      label: Русский
+      type: string
+    - name: hy
+      label: Հայերեն
+      type: string
+  - name: summary
+    label: Service description
+    type: object
+    fields:
+    - name: en
+      label: English
+      type: text
+    - name: ru
+      label: Русский
+      type: text
+    - name: hy
+      label: Հայերեն
+      type: text
+  - name: image
+    label: Cover photo
+    type: image
+  - name: price
+    label: Optional starting price (AMD)
+    type: number
+- name: page-home
+  label: 'Page: Home'
+  type: file
+  path: content/pages/home.json
+  format: json
+  fields:
+  - name: heroImage
+    label: Hero background
+    type: image
+  - name: headline
+    label: Hero headline
+    type: object
+    fields:
+    - name: en
+      label: English
+      type: string
+    - name: ru
+      label: Русский
+      type: string
+    - name: hy
+      label: Հայերեն
+      type: string
+  - name: eyebrow
+    label: Hero overline
+    type: object
+    fields:
+    - name: en
+      label: English
+      type: string
+    - name: ru
+      label: Русский
+      type: string
+    - name: hy
+      label: Հայերեն
+      type: string
+  - name: subtitle
+    label: Hero description
+    type: object
+    fields:
+    - name: en
+      label: English
+      type: text
+    - name: ru
+      label: Русский
+      type: text
+    - name: hy
+      label: Հայերեն
+      type: text
+  - name: heroLocation
+    label: Image location credit
+    type: object
+    fields:
+    - name: en
+      label: English
+      type: string
+    - name: ru
+      label: Русский
+      type: string
+    - name: hy
+      label: Հայերեն
+      type: string
+  - name: services
+    label: 4 service tiles
+    type: object
+    list: true
+    fields:
+    - name: id
+      label: Service type
+      type: select
+      options:
+        values:
+        - tours
+        - transfers
+        - cars
+        - hotels
+    - name: image
+      label: Service tile image
+      type: image
+  - name: why
+    label: 3 reasons to book
+    type: object
+    fields:
+    - name: en
+      label: English bullet points
+      type: string
+      list: true
+    - name: ru
+      label: Русский bullet points
+      type: string
+      list: true
+    - name: hy
+      label: Հայերեն bullet points
+      type: string
+      list: true
+  - name: footerNote
+    label: Footer description
+    type: object
+    fields:
+    - name: en
+      label: English
+      type: text
+    - name: ru
+      label: Русский
+      type: text
+    - name: hy
+      label: Հայերեն
+      type: text
+  - name: heroAttribution
+    label: Hero photo attribution (EN / RU / HY)
+    type: object
+    fields:
+    - name: en
+      label: English
+      type: text
+    - name: ru
+      label: Русский
+      type: text
+    - name: hy
+      label: Հայերեն
+      type: text
+  - name: heroAttributionUrl
+    label: Photo source / license URL
+    type: string
+  - name: copy
+    label: Page texts by language
+    type: object
+    fields:
+    - name: popular
+      label: Popular
+      type: object
+      fields:
+      - name: en
+        label: English
+        type: string
+      - name: ru
+        label: Русский
+        type: string
+      - name: hy
+        label: Հայերեն
+        type: string
+    - name: popularTitle
+      label: Populartitle
+      type: object
+      fields:
+      - name: en
+        label: English
+        type: string
+      - name: ru
+        label: Русский
+        type: string
+      - name: hy
+        label: Հայերեն
+        type: string
+    - name: popularDesc
+      label: Populardesc
+      type: object
+      fields:
+      - name: en
+        label: English
+        type: text
+      - name: ru
+        label: Русский
+        type: text
+      - name: hy
+        label: Հայերեն
+        type: text
+    - name: carLabel
+      label: Carlabel
+      type: object
+      fields:
+      - name: en
+        label: English
+        type: string
+      - name: ru
+        label: Русский
+        type: string
+      - name: hy
+        label: Հայերեն
+        type: string
+    - name: carTitle
+      label: Cartitle
+      type: object
+      fields:
+      - name: en
+        label: English
+        type: string
+      - name: ru
+        label: Русский
+        type: string
+      - name: hy
+        label: Հայերեն
+        type: string
+    - name: carDesc
+      label: Cardesc
+      type: object
+      fields:
+      - name: en
+        label: English
+        type: text
+      - name: ru
+        label: Русский
+        type: text
+      - name: hy
+        label: Հայերեն
+        type: text
+    - name: ctaTitle
+      label: Ctatitle
+      type: object
+      fields:
+      - name: en
+        label: English
+        type: string
+      - name: ru
+        label: Русский
+        type: string
+      - name: hy
+        label: Հայերեն
+        type: string
+    - name: ctaDesc
+      label: Ctadesc
+      type: object
+      fields:
+      - name: en
+        label: English
+        type: text
+      - name: ru
+        label: Русский
+        type: text
+      - name: hy
+        label: Հայերեն
+        type: text
+- name: page-about
+  label: 'Page: About'
+  type: file
+  path: content/pages/about.json
+  format: json
+  fields:
+  - name: heroImage
+    label: Page header background image
+    type: image
+  - name: copy
+    label: Page texts by language
+    type: object
+    fields:
+    - name: aboutTitle
+      label: Abouttitle
+      type: object
+      fields:
+      - name: en
+        label: English
+        type: string
+      - name: ru
+        label: Русский
+        type: string
+      - name: hy
+        label: Հայերեն
+        type: string
+    - name: aboutBody
+      label: Aboutbody
+      type: object
+      fields:
+      - name: en
+        label: English
+        type: text
+      - name: ru
+        label: Русский
+        type: text
+      - name: hy
+        label: Հայերեն
+        type: text
+    - name: whyTitle
+      label: Whytitle
+      type: object
+      fields:
+      - name: en
+        label: English
+        type: string
+      - name: ru
+        label: Русский
+        type: string
+      - name: hy
+        label: Հայերեն
+        type: string
+    - name: whySubtitle
+      label: Whysubtitle
+      type: object
+      fields:
+      - name: en
+        label: English
+        type: text
+      - name: ru
+        label: Русский
+        type: text
+      - name: hy
+        label: Հայերեն
+        type: text
+- name: page-contact
+  label: 'Page: Contact'
+  type: file
+  path: content/pages/contact.json
+  format: json
+  fields:
+  - name: heroImage
+    label: Page header background image
+    type: image
+  - name: copy
+    label: Page texts by language
+    type: object
+    fields:
+    - name: contactTitle
+      label: Contacttitle
+      type: object
+      fields:
+      - name: en
+        label: English
+        type: string
+      - name: ru
+        label: Русский
+        type: string
+      - name: hy
+        label: Հայերեն
+        type: string
+    - name: contactDesc
+      label: Contactdesc
+      type: object
+      fields:
+      - name: en
+        label: English
+        type: text
+      - name: ru
+        label: Русский
+        type: text
+      - name: hy
+        label: Հայերեն
+        type: text
+    - name: contactHero
+      label: Contacthero
+      type: object
+      fields:
+      - name: en
+        label: English
+        type: string
+      - name: ru
+        label: Русский
+        type: string
+      - name: hy
+        label: Հայերեն
+        type: string
+- name: page-tours
+  label: 'Page: Tours'
+  type: file
+  path: content/pages/tours.json
+  format: json
+  fields:
+  - name: heroImage
+    label: Page header background image
+    type: image
+  - name: copy
+    label: Page texts by language
+    type: object
+    fields:
+    - name: tours
+      label: Tours
+      type: object
+      fields:
+      - name: en
+        label: English
+        type: string
+      - name: ru
+        label: Русский
+        type: string
+      - name: hy
+        label: Հայերեն
+        type: string
+    - name: tourTab
+      label: Tourtab
+      type: object
+      fields:
+      - name: en
+        label: English
+        type: string
+      - name: ru
+        label: Русский
+        type: string
+      - name: hy
+        label: Հայերեն
+        type: string
+- name: page-cars
+  label: 'Page: Cars'
+  type: file
+  path: content/pages/cars.json
+  format: json
+  fields:
+  - name: heroImage
+    label: Page header background image
+    type: image
+  - name: copy
+    label: Page texts by language
+    type: object
+    fields:
+    - name: cars
+      label: Cars
+      type: object
+      fields:
+      - name: en
+        label: English
+        type: string
+      - name: ru
+        label: Русский
+        type: string
+      - name: hy
+        label: Հայերեն
+        type: string
+    - name: rentalCars
+      label: Rentalcars
+      type: object
+      fields:
+      - name: en
+        label: English
+        type: string
+      - name: ru
+        label: Русский
+        type: string
+      - name: hy
+        label: Հայերեն
+        type: string
+    - name: carRange
+      label: Carrange
+      type: object
+      fields:
+      - name: en
+        label: English
+        type: string
+      - name: ru
+        label: Русский
+        type: string
+      - name: hy
+        label: Հայերեն
+        type: string
+- name: page-transfers
+  label: 'Page: Transfers'
+  type: file
+  path: content/pages/transfers.json
+  format: json
+  fields:
+  - name: heroImage
+    label: Page header background image
+    type: image
+  - name: copy
+    label: Page texts by language
+    type: object
+    fields:
+    - name: transferLabel
+      label: Transferlabel
+      type: object
+      fields:
+      - name: en
+        label: English
+        type: string
+      - name: ru
+        label: Русский
+        type: string
+      - name: hy
+        label: Հայերեն
+        type: string
+    - name: transferTitle
+      label: Transfertitle
+      type: object
+      fields:
+      - name: en
+        label: English
+        type: string
+      - name: ru
+        label: Русский
+        type: string
+      - name: hy
+        label: Հայերեն
+        type: string
+    - name: transferDesc
+      label: Transferdesc
+      type: object
+      fields:
+      - name: en
+        label: English
+        type: text
+      - name: ru
+        label: Русский
+        type: text
+      - name: hy
+        label: Հայերեն
+        type: text
+- name: page-hotels
+  label: 'Page: Hotels'
+  type: file
+  path: content/pages/hotels.json
+  format: json
+  fields:
+  - name: heroImage
+    label: Page header background image
+    type: image
+  - name: copy
+    label: Page texts by language
+    type: object
+    fields:
+    - name: hotelLabel
+      label: Hotellabel
+      type: object
+      fields:
+      - name: en
+        label: English
+        type: string
+      - name: ru
+        label: Русский
+        type: string
+      - name: hy
+        label: Հայերեն
+        type: string
+    - name: hotelTitle
+      label: Hoteltitle
+      type: object
+      fields:
+      - name: en
+        label: English
+        type: string
+      - name: ru
+        label: Русский
+        type: string
+      - name: hy
+        label: Հայերեն
+        type: string
+    - name: hotelDesc
+      label: Hoteldesc
+      type: object
+      fields:
+      - name: en
+        label: English
+        type: text
+      - name: ru
+        label: Русский
+        type: text
+      - name: hy
+        label: Հայերեն
+        type: text
+- name: ui-en
+  label: 'UI labels: English'
+  type: file
+  path: content/i18n/en.json
+  format: json
+  fields:
+  - name: home
+    label: home
+    type: string
+  - name: tours
+    label: tours
+    type: string
+  - name: cars
+    label: cars
+    type: string
+  - name: transfers
+    label: transfers
+    type: string
+  - name: hotels
+    label: hotels
+    type: string
+  - name: about
+    label: about
+    type: string
+  - name: contact
+    label: contact
+    type: string
+  - name: plan
+    label: plan
+    type: string
+  - name: explore
+    label: explore
+    type: string
+  - name: browse
+    label: browse
+    type: string
+  - name: viewAllTours
+    label: viewAllTours
+    type: string
+  - name: viewAllCars
+    label: viewAllCars
+    type: string
+  - name: heroButton
+    label: heroButton
+    type: string
+  - name: tourTab
+    label: tourTab
+    type: string
+  - name: carTab
+    label: carTab
+    type: string
+  - name: transferTab
+    label: transferTab
+    type: string
+  - name: hotelTab
+    label: hotelTab
+    type: string
+  - name: destination
+    label: destination
+    type: string
+  - name: travelDate
+    label: travelDate
+    type: string
+  - name: travellers
+    label: travellers
+    type: string
+  - name: searchTours
+    label: searchTours
+    type: string
+  - name: pickup
+    label: pickup
+    type: string
+  - name: dropoff
+    label: dropoff
+    type: string
+  - name: pickupPlace
+    label: pickupPlace
+    type: string
+  - name: findCars
+    label: findCars
+    type: string
+  - name: findTransfers
+    label: findTransfers
+    type: string
+  - name: findHotels
+    label: findHotels
+    type: string
+  - name: startCity
+    label: startCity
+    type: string
+  - name: endCity
+    label: endCity
+    type: string
+  - name: search
+    label: search
+    type: string
+  - name: allPlaces
+    label: allPlaces
+    type: string
+  - name: allTypes
+    label: allTypes
+    type: string
+  - name: selectDate
+    label: selectDate
+    type: string
+  - name: guests
+    label: guests
+    type: string
+  - name: popular
+    label: popular
+    type: string
+  - name: popularTitle
+    label: popularTitle
+    type: string
+  - name: popularDesc
+    label: popularDesc
+    type: string
+  - name: from
+    label: from
+    type: string
+  - name: day
+    label: day
+    type: string
+  - name: perDay
+    label: perDay
+    type: string
+  - name: person
+    label: person
+    type: string
+  - name: group
+    label: group
+    type: string
+  - name: seeDetails
+    label: seeDetails
+    type: string
+  - name: rentCar
+    label: rentCar
+    type: string
+  - name: carLabel
+    label: carLabel
+    type: string
+  - name: carTitle
+    label: carTitle
+    type: string
+  - name: carDesc
+    label: carDesc
+    type: string
+  - name: rentalCars
+    label: rentalCars
+    type: string
+  - name: allVehicles
+    label: allVehicles
+    type: string
+  - name: transmission
+    label: transmission
+    type: string
+  - name: automatic
+    label: automatic
+    type: string
+  - name: manual
+    label: manual
+    type: string
+  - name: vehicleType
+    label: vehicleType
+    type: string
+  - name: allVehiclesType
+    label: allVehiclesType
+    type: string
+  - name: seats
+    label: seats
+    type: string
+  - name: anySeats
+    label: anySeats
+    type: string
+  - name: drive
+    label: drive
+    type: string
+  - name: bags
+    label: bags
+    type: string
+  - name: fuel
+    label: fuel
+    type: string
+  - name: sort
+    label: sort
+    type: string
+  - name: recommended
+    label: recommended
+    type: string
+  - name: priceLow
+    label: priceLow
+    type: string
+  - name: priceHigh
+    label: priceHigh
+    type: string
+  - name: filters
+    label: filters
+    type: string
+  - name: clear
+    label: clear
+    type: string
+  - name: results
+    label: results
+    type: string
+  - name: noResults
+    label: noResults
+    type: string
+  - name: serviceTours
+    label: serviceTours
+    type: string
+  - name: serviceToursDesc
+    label: serviceToursDesc
+    type: string
+  - name: serviceCars
+    label: serviceCars
+    type: string
+  - name: serviceCarsDesc
+    label: serviceCarsDesc
+    type: string
+  - name: serviceTransfers
+    label: serviceTransfers
+    type: string
+  - name: serviceTransfersDesc
+    label: serviceTransfersDesc
+    type: string
+  - name: serviceHotels
+    label: serviceHotels
+    type: string
+  - name: serviceHotelsDesc
+    label: serviceHotelsDesc
+    type: string
+  - name: transferLabel
+    label: transferLabel
+    type: string
+  - name: transferTitle
+    label: transferTitle
+    type: string
+  - name: transferDesc
+    label: transferDesc
+    type: string
+  - name: hotelLabel
+    label: hotelLabel
+    type: string
+  - name: hotelTitle
+    label: hotelTitle
+    type: string
+  - name: hotelDesc
+    label: hotelDesc
+    type: string
+  - name: readMore
+    label: readMore
+    type: string
+  - name: whyTitle
+    label: whyTitle
+    type: string
+  - name: whySubtitle
+    label: whySubtitle
+    type: string
+  - name: ctaTitle
+    label: ctaTitle
+    type: string
+  - name: ctaDesc
+    label: ctaDesc
+    type: string
+  - name: ctaButton
+    label: ctaButton
+    type: string
+  - name: footerExplore
+    label: footerExplore
+    type: string
+  - name: footerServices
+    label: footerServices
+    type: string
+  - name: footerContact
+    label: footerContact
+    type: string
+  - name: follow
+    label: follow
+    type: string
+  - name: demoNotice
+    label: demoNotice
+    type: string
+  - name: detailAbout
+    label: detailAbout
+    type: string
+  - name: itinerary
+    label: itinerary
+    type: string
+  - name: included
+    label: included
+    type: string
+  - name: excluded
+    label: excluded
+    type: string
+  - name: duration
+    label: duration
+    type: string
+  - name: departure
+    label: departure
+    type: string
+  - name: guideLanguage
+    label: guideLanguage
+    type: string
+  - name: pricing
+    label: pricing
+    type: string
+  - name: estimatedTotal
+    label: estimatedTotal
+    type: string
+  - name: adults
+    label: adults
+    type: string
+  - name: children
+    label: children
+    type: string
+  - name: chooseDate
+    label: chooseDate
+    type: string
+  - name: requestTour
+    label: requestTour
+    type: string
+  - name: requestCar
+    label: requestCar
+    type: string
+  - name: requestTransfer
+    label: requestTransfer
+    type: string
+  - name: requestHotel
+    label: requestHotel
+    type: string
+  - name: rentalSummary
+    label: rentalSummary
+    type: string
+  - name: days
+    label: days
+    type: string
+  - name: approxTotal
+    label: approxTotal
+    type: string
+  - name: notFinal
+    label: notFinal
+    type: string
+  - name: backTours
+    label: backTours
+    type: string
+  - name: backCars
+    label: backCars
+    type: string
+  - name: category
+    label: category
+    type: string
+  - name: model
+    label: model
+    type: string
+  - name: location
+    label: location
+    type: string
+  - name: equipment
+    label: equipment
+    type: string
+  - name: requestTitle
+    label: requestTitle
+    type: string
+  - name: fullName
+    label: fullName
+    type: string
+  - name: email
+    label: email
+    type: string
+  - name: phone
+    label: phone
+    type: string
+  - name: message
+    label: message
+    type: string
+  - name: sendEnquiry
+    label: sendEnquiry
+    type: string
+  - name: copy
+    label: copy
+    type: string
+  - name: openEmail
+    label: openEmail
+    type: string
+  - name: close
+    label: close
+    type: string
+  - name: enquiryReady
+    label: enquiryReady
+    type: string
+  - name: enquiryInfo
+    label: enquiryInfo
+    type: text
+  - name: copied
+    label: copied
+    type: string
+  - name: dateError
+    label: dateError
+    type: string
+  - name: formError
+    label: formError
+    type: string
+  - name: newsTitle
+    label: newsTitle
+    type: string
+  - name: newsText
+    label: newsText
+    type: string
+  - name: aboutTitle
+    label: aboutTitle
+    type: string
+  - name: aboutBody
+    label: aboutBody
+    type: text
+  - name: contactTitle
+    label: contactTitle
+    type: string
+  - name: contactDesc
+    label: contactDesc
+    type: string
+  - name: contactEmail
+    label: contactEmail
+    type: string
+  - name: notConfigured
+    label: notConfigured
+    type: string
+  - name: noteForOperator
+    label: noteForOperator
+    type: string
+  - name: locationYerevan
+    label: locationYerevan
+    type: string
+  - name: locationAirport
+    label: locationAirport
+    type: string
+  - name: rentalConditions
+    label: rentalConditions
+    type: string
+  - name: rentalTermText
+    label: rentalTermText
+    type: text
+  - name: specialRequest
+    label: specialRequest
+    type: string
+  - name: bookNow
+    label: bookNow
+    type: string
+  - name: newRequest
+    label: newRequest
+    type: string
+  - name: exploreDestinations
+    label: exploreDestinations
+    type: string
+  - name: dateRequired
+    label: dateRequired
+    type: string
+  - name: arrival
+    label: arrival
+    type: string
+  - name: departureDate
+    label: departureDate
+    type: string
+  - name: roomCount
+    label: roomCount
+    type: string
+  - name: noContacts
+    label: noContacts
+    type: string
+  - name: all
+    label: all
+    type: string
+  - name: private
+    label: private
+    type: string
+  - name: groupTours
+    label: groupTours
+    type: string
+  - name: quickLinks
+    label: quickLinks
+    type: string
+  - name: type
+    label: type
+    type: string
+  - name: pleaseSelect
+    label: pleaseSelect
+    type: string
+  - name: yourEmail
+    label: yourEmail
+    type: string
+  - name: copyHint
+    label: copyHint
+    type: string
+  - name: fav
+    label: fav
+    type: string
+  - name: saved
+    label: saved
+    type: string
+  - name: noFav
+    label: noFav
+    type: string
+  - name: yourFavorites
+    label: yourFavorites
+    type: string
+  - name: book
+    label: book
+    type: string
+  - name: contactHero
+    label: contactHero
+    type: string
+  - name: intro
+    label: intro
+    type: string
+  - name: imageNote
+    label: imageNote
+    type: string
+  - name: moreCars
+    label: moreCars
+    type: string
+  - name: sortBy
+    label: sortBy
+    type: string
+  - name: maxPrice
+    label: maxPrice
+    type: string
+  - name: allPrices
+    label: allPrices
+    type: string
+  - name: currency
+    label: currency
+    type: string
+  - name: city
+    label: city
+    type: string
+  - name: anyDate
+    label: anyDate
+    type: string
+  - name: carRange
+    label: carRange
+    type: string
+  - name: datePicker
+    label: datePicker
+    type: string
+  - name: mobileNav
+    label: mobileNav
+    type: string
+  - name: whatsapp
+    label: whatsapp
+    type: string
+  - name: callNow
+    label: callNow
+    type: string
+  - name: followUs
+    label: followUs
+    type: string
+  - name: socialComingSoon
+    label: socialComingSoon
+    type: string
+- name: ui-ru
+  label: 'UI labels: Русский'
+  type: file
+  path: content/i18n/ru.json
+  format: json
+  fields:
+  - name: home
+    label: home
+    type: string
+  - name: tours
+    label: tours
+    type: string
+  - name: cars
+    label: cars
+    type: string
+  - name: transfers
+    label: transfers
+    type: string
+  - name: hotels
+    label: hotels
+    type: string
+  - name: about
+    label: about
+    type: string
+  - name: contact
+    label: contact
+    type: string
+  - name: plan
+    label: plan
+    type: string
+  - name: explore
+    label: explore
+    type: string
+  - name: browse
+    label: browse
+    type: string
+  - name: viewAllTours
+    label: viewAllTours
+    type: string
+  - name: viewAllCars
+    label: viewAllCars
+    type: string
+  - name: heroButton
+    label: heroButton
+    type: string
+  - name: tourTab
+    label: tourTab
+    type: string
+  - name: carTab
+    label: carTab
+    type: string
+  - name: transferTab
+    label: transferTab
+    type: string
+  - name: hotelTab
+    label: hotelTab
+    type: string
+  - name: destination
+    label: destination
+    type: string
+  - name: travelDate
+    label: travelDate
+    type: string
+  - name: travellers
+    label: travellers
+    type: string
+  - name: searchTours
+    label: searchTours
+    type: string
+  - name: pickup
+    label: pickup
+    type: string
+  - name: dropoff
+    label: dropoff
+    type: string
+  - name: pickupPlace
+    label: pickupPlace
+    type: string
+  - name: findCars
+    label: findCars
+    type: string
+  - name: findTransfers
+    label: findTransfers
+    type: string
+  - name: findHotels
+    label: findHotels
+    type: string
+  - name: startCity
+    label: startCity
+    type: string
+  - name: endCity
+    label: endCity
+    type: string
+  - name: search
+    label: search
+    type: string
+  - name: allPlaces
+    label: allPlaces
+    type: string
+  - name: allTypes
+    label: allTypes
+    type: string
+  - name: selectDate
+    label: selectDate
+    type: string
+  - name: guests
+    label: guests
+    type: string
+  - name: popular
+    label: popular
+    type: string
+  - name: popularTitle
+    label: popularTitle
+    type: string
+  - name: popularDesc
+    label: popularDesc
+    type: string
+  - name: from
+    label: from
+    type: string
+  - name: day
+    label: day
+    type: string
+  - name: perDay
+    label: perDay
+    type: string
+  - name: person
+    label: person
+    type: string
+  - name: group
+    label: group
+    type: string
+  - name: seeDetails
+    label: seeDetails
+    type: string
+  - name: rentCar
+    label: rentCar
+    type: string
+  - name: carLabel
+    label: carLabel
+    type: string
+  - name: carTitle
+    label: carTitle
+    type: string
+  - name: carDesc
+    label: carDesc
+    type: string
+  - name: rentalCars
+    label: rentalCars
+    type: string
+  - name: allVehicles
+    label: allVehicles
+    type: string
+  - name: transmission
+    label: transmission
+    type: string
+  - name: automatic
+    label: automatic
+    type: string
+  - name: manual
+    label: manual
+    type: string
+  - name: vehicleType
+    label: vehicleType
+    type: string
+  - name: allVehiclesType
+    label: allVehiclesType
+    type: string
+  - name: seats
+    label: seats
+    type: string
+  - name: anySeats
+    label: anySeats
+    type: string
+  - name: drive
+    label: drive
+    type: string
+  - name: bags
+    label: bags
+    type: string
+  - name: fuel
+    label: fuel
+    type: string
+  - name: sort
+    label: sort
+    type: string
+  - name: recommended
+    label: recommended
+    type: string
+  - name: priceLow
+    label: priceLow
+    type: string
+  - name: priceHigh
+    label: priceHigh
+    type: string
+  - name: filters
+    label: filters
+    type: string
+  - name: clear
+    label: clear
+    type: string
+  - name: results
+    label: results
+    type: string
+  - name: noResults
+    label: noResults
+    type: string
+  - name: serviceTours
+    label: serviceTours
+    type: string
+  - name: serviceToursDesc
+    label: serviceToursDesc
+    type: string
+  - name: serviceCars
+    label: serviceCars
+    type: string
+  - name: serviceCarsDesc
+    label: serviceCarsDesc
+    type: string
+  - name: serviceTransfers
+    label: serviceTransfers
+    type: string
+  - name: serviceTransfersDesc
+    label: serviceTransfersDesc
+    type: string
+  - name: serviceHotels
+    label: serviceHotels
+    type: string
+  - name: serviceHotelsDesc
+    label: serviceHotelsDesc
+    type: string
+  - name: transferLabel
+    label: transferLabel
+    type: string
+  - name: transferTitle
+    label: transferTitle
+    type: string
+  - name: transferDesc
+    label: transferDesc
+    type: string
+  - name: hotelLabel
+    label: hotelLabel
+    type: string
+  - name: hotelTitle
+    label: hotelTitle
+    type: string
+  - name: hotelDesc
+    label: hotelDesc
+    type: string
+  - name: readMore
+    label: readMore
+    type: string
+  - name: whyTitle
+    label: whyTitle
+    type: string
+  - name: whySubtitle
+    label: whySubtitle
+    type: string
+  - name: ctaTitle
+    label: ctaTitle
+    type: string
+  - name: ctaDesc
+    label: ctaDesc
+    type: string
+  - name: ctaButton
+    label: ctaButton
+    type: string
+  - name: footerExplore
+    label: footerExplore
+    type: string
+  - name: footerServices
+    label: footerServices
+    type: string
+  - name: footerContact
+    label: footerContact
+    type: string
+  - name: follow
+    label: follow
+    type: string
+  - name: demoNotice
+    label: demoNotice
+    type: string
+  - name: detailAbout
+    label: detailAbout
+    type: string
+  - name: itinerary
+    label: itinerary
+    type: string
+  - name: included
+    label: included
+    type: string
+  - name: excluded
+    label: excluded
+    type: string
+  - name: duration
+    label: duration
+    type: string
+  - name: departure
+    label: departure
+    type: string
+  - name: guideLanguage
+    label: guideLanguage
+    type: string
+  - name: pricing
+    label: pricing
+    type: string
+  - name: estimatedTotal
+    label: estimatedTotal
+    type: string
+  - name: adults
+    label: adults
+    type: string
+  - name: children
+    label: children
+    type: string
+  - name: chooseDate
+    label: chooseDate
+    type: string
+  - name: requestTour
+    label: requestTour
+    type: string
+  - name: requestCar
+    label: requestCar
+    type: string
+  - name: requestTransfer
+    label: requestTransfer
+    type: string
+  - name: requestHotel
+    label: requestHotel
+    type: string
+  - name: rentalSummary
+    label: rentalSummary
+    type: string
+  - name: days
+    label: days
+    type: string
+  - name: approxTotal
+    label: approxTotal
+    type: string
+  - name: notFinal
+    label: notFinal
+    type: string
+  - name: backTours
+    label: backTours
+    type: string
+  - name: backCars
+    label: backCars
+    type: string
+  - name: category
+    label: category
+    type: string
+  - name: model
+    label: model
+    type: string
+  - name: location
+    label: location
+    type: string
+  - name: equipment
+    label: equipment
+    type: string
+  - name: requestTitle
+    label: requestTitle
+    type: string
+  - name: fullName
+    label: fullName
+    type: string
+  - name: email
+    label: email
+    type: string
+  - name: phone
+    label: phone
+    type: string
+  - name: message
+    label: message
+    type: string
+  - name: sendEnquiry
+    label: sendEnquiry
+    type: string
+  - name: copy
+    label: copy
+    type: string
+  - name: openEmail
+    label: openEmail
+    type: string
+  - name: close
+    label: close
+    type: string
+  - name: enquiryReady
+    label: enquiryReady
+    type: string
+  - name: enquiryInfo
+    label: enquiryInfo
+    type: text
+  - name: copied
+    label: copied
+    type: string
+  - name: dateError
+    label: dateError
+    type: string
+  - name: formError
+    label: formError
+    type: string
+  - name: newsTitle
+    label: newsTitle
+    type: string
+  - name: newsText
+    label: newsText
+    type: string
+  - name: aboutTitle
+    label: aboutTitle
+    type: string
+  - name: aboutBody
+    label: aboutBody
+    type: text
+  - name: contactTitle
+    label: contactTitle
+    type: string
+  - name: contactDesc
+    label: contactDesc
+    type: string
+  - name: contactEmail
+    label: contactEmail
+    type: string
+  - name: notConfigured
+    label: notConfigured
+    type: string
+  - name: noteForOperator
+    label: noteForOperator
+    type: string
+  - name: locationYerevan
+    label: locationYerevan
+    type: string
+  - name: locationAirport
+    label: locationAirport
+    type: string
+  - name: rentalConditions
+    label: rentalConditions
+    type: string
+  - name: rentalTermText
+    label: rentalTermText
+    type: text
+  - name: specialRequest
+    label: specialRequest
+    type: string
+  - name: bookNow
+    label: bookNow
+    type: string
+  - name: newRequest
+    label: newRequest
+    type: string
+  - name: exploreDestinations
+    label: exploreDestinations
+    type: string
+  - name: dateRequired
+    label: dateRequired
+    type: string
+  - name: arrival
+    label: arrival
+    type: string
+  - name: departureDate
+    label: departureDate
+    type: string
+  - name: roomCount
+    label: roomCount
+    type: string
+  - name: noContacts
+    label: noContacts
+    type: string
+  - name: all
+    label: all
+    type: string
+  - name: private
+    label: private
+    type: string
+  - name: groupTours
+    label: groupTours
+    type: string
+  - name: quickLinks
+    label: quickLinks
+    type: string
+  - name: type
+    label: type
+    type: string
+  - name: pleaseSelect
+    label: pleaseSelect
+    type: string
+  - name: yourEmail
+    label: yourEmail
+    type: string
+  - name: copyHint
+    label: copyHint
+    type: string
+  - name: fav
+    label: fav
+    type: string
+  - name: saved
+    label: saved
+    type: string
+  - name: noFav
+    label: noFav
+    type: string
+  - name: yourFavorites
+    label: yourFavorites
+    type: string
+  - name: book
+    label: book
+    type: string
+  - name: contactHero
+    label: contactHero
+    type: string
+  - name: intro
+    label: intro
+    type: string
+  - name: imageNote
+    label: imageNote
+    type: string
+  - name: moreCars
+    label: moreCars
+    type: string
+  - name: sortBy
+    label: sortBy
+    type: string
+  - name: maxPrice
+    label: maxPrice
+    type: string
+  - name: allPrices
+    label: allPrices
+    type: string
+  - name: currency
+    label: currency
+    type: string
+  - name: city
+    label: city
+    type: string
+  - name: anyDate
+    label: anyDate
+    type: string
+  - name: carRange
+    label: carRange
+    type: string
+  - name: datePicker
+    label: datePicker
+    type: string
+  - name: mobileNav
+    label: mobileNav
+    type: string
+  - name: whatsapp
+    label: whatsapp
+    type: string
+  - name: callNow
+    label: callNow
+    type: string
+  - name: followUs
+    label: followUs
+    type: string
+  - name: socialComingSoon
+    label: socialComingSoon
+    type: string
+- name: ui-hy
+  label: 'UI labels: Հայերեն'
+  type: file
+  path: content/i18n/hy.json
+  format: json
+  fields:
+  - name: home
+    label: home
+    type: string
+  - name: tours
+    label: tours
+    type: string
+  - name: cars
+    label: cars
+    type: string
+  - name: transfers
+    label: transfers
+    type: string
+  - name: hotels
+    label: hotels
+    type: string
+  - name: about
+    label: about
+    type: string
+  - name: contact
+    label: contact
+    type: string
+  - name: plan
+    label: plan
+    type: string
+  - name: explore
+    label: explore
+    type: string
+  - name: browse
+    label: browse
+    type: string
+  - name: viewAllTours
+    label: viewAllTours
+    type: string
+  - name: viewAllCars
+    label: viewAllCars
+    type: string
+  - name: heroButton
+    label: heroButton
+    type: string
+  - name: tourTab
+    label: tourTab
+    type: string
+  - name: carTab
+    label: carTab
+    type: string
+  - name: transferTab
+    label: transferTab
+    type: string
+  - name: hotelTab
+    label: hotelTab
+    type: string
+  - name: destination
+    label: destination
+    type: string
+  - name: travelDate
+    label: travelDate
+    type: string
+  - name: travellers
+    label: travellers
+    type: string
+  - name: searchTours
+    label: searchTours
+    type: string
+  - name: pickup
+    label: pickup
+    type: string
+  - name: dropoff
+    label: dropoff
+    type: string
+  - name: pickupPlace
+    label: pickupPlace
+    type: string
+  - name: findCars
+    label: findCars
+    type: string
+  - name: findTransfers
+    label: findTransfers
+    type: string
+  - name: findHotels
+    label: findHotels
+    type: string
+  - name: startCity
+    label: startCity
+    type: string
+  - name: endCity
+    label: endCity
+    type: string
+  - name: search
+    label: search
+    type: string
+  - name: allPlaces
+    label: allPlaces
+    type: string
+  - name: allTypes
+    label: allTypes
+    type: string
+  - name: selectDate
+    label: selectDate
+    type: string
+  - name: guests
+    label: guests
+    type: string
+  - name: popular
+    label: popular
+    type: string
+  - name: popularTitle
+    label: popularTitle
+    type: string
+  - name: popularDesc
+    label: popularDesc
+    type: string
+  - name: from
+    label: from
+    type: string
+  - name: day
+    label: day
+    type: string
+  - name: perDay
+    label: perDay
+    type: string
+  - name: person
+    label: person
+    type: string
+  - name: group
+    label: group
+    type: string
+  - name: seeDetails
+    label: seeDetails
+    type: string
+  - name: rentCar
+    label: rentCar
+    type: string
+  - name: carLabel
+    label: carLabel
+    type: string
+  - name: carTitle
+    label: carTitle
+    type: string
+  - name: carDesc
+    label: carDesc
+    type: string
+  - name: rentalCars
+    label: rentalCars
+    type: string
+  - name: allVehicles
+    label: allVehicles
+    type: string
+  - name: transmission
+    label: transmission
+    type: string
+  - name: automatic
+    label: automatic
+    type: string
+  - name: manual
+    label: manual
+    type: string
+  - name: vehicleType
+    label: vehicleType
+    type: string
+  - name: allVehiclesType
+    label: allVehiclesType
+    type: string
+  - name: seats
+    label: seats
+    type: string
+  - name: anySeats
+    label: anySeats
+    type: string
+  - name: drive
+    label: drive
+    type: string
+  - name: bags
+    label: bags
+    type: string
+  - name: fuel
+    label: fuel
+    type: string
+  - name: sort
+    label: sort
+    type: string
+  - name: recommended
+    label: recommended
+    type: string
+  - name: priceLow
+    label: priceLow
+    type: string
+  - name: priceHigh
+    label: priceHigh
+    type: string
+  - name: filters
+    label: filters
+    type: string
+  - name: clear
+    label: clear
+    type: string
+  - name: results
+    label: results
+    type: string
+  - name: noResults
+    label: noResults
+    type: string
+  - name: serviceTours
+    label: serviceTours
+    type: string
+  - name: serviceToursDesc
+    label: serviceToursDesc
+    type: string
+  - name: serviceCars
+    label: serviceCars
+    type: string
+  - name: serviceCarsDesc
+    label: serviceCarsDesc
+    type: string
+  - name: serviceTransfers
+    label: serviceTransfers
+    type: string
+  - name: serviceTransfersDesc
+    label: serviceTransfersDesc
+    type: string
+  - name: serviceHotels
+    label: serviceHotels
+    type: string
+  - name: serviceHotelsDesc
+    label: serviceHotelsDesc
+    type: string
+  - name: transferLabel
+    label: transferLabel
+    type: string
+  - name: transferTitle
+    label: transferTitle
+    type: string
+  - name: transferDesc
+    label: transferDesc
+    type: string
+  - name: hotelLabel
+    label: hotelLabel
+    type: string
+  - name: hotelTitle
+    label: hotelTitle
+    type: string
+  - name: hotelDesc
+    label: hotelDesc
+    type: string
+  - name: readMore
+    label: readMore
+    type: string
+  - name: whyTitle
+    label: whyTitle
+    type: string
+  - name: whySubtitle
+    label: whySubtitle
+    type: string
+  - name: ctaTitle
+    label: ctaTitle
+    type: string
+  - name: ctaDesc
+    label: ctaDesc
+    type: string
+  - name: ctaButton
+    label: ctaButton
+    type: string
+  - name: footerExplore
+    label: footerExplore
+    type: string
+  - name: footerServices
+    label: footerServices
+    type: string
+  - name: footerContact
+    label: footerContact
+    type: string
+  - name: follow
+    label: follow
+    type: string
+  - name: demoNotice
+    label: demoNotice
+    type: string
+  - name: detailAbout
+    label: detailAbout
+    type: string
+  - name: itinerary
+    label: itinerary
+    type: string
+  - name: included
+    label: included
+    type: string
+  - name: excluded
+    label: excluded
+    type: string
+  - name: duration
+    label: duration
+    type: string
+  - name: departure
+    label: departure
+    type: string
+  - name: guideLanguage
+    label: guideLanguage
+    type: string
+  - name: pricing
+    label: pricing
+    type: string
+  - name: estimatedTotal
+    label: estimatedTotal
+    type: string
+  - name: adults
+    label: adults
+    type: string
+  - name: children
+    label: children
+    type: string
+  - name: chooseDate
+    label: chooseDate
+    type: string
+  - name: requestTour
+    label: requestTour
+    type: string
+  - name: requestCar
+    label: requestCar
+    type: string
+  - name: requestTransfer
+    label: requestTransfer
+    type: string
+  - name: requestHotel
+    label: requestHotel
+    type: string
+  - name: rentalSummary
+    label: rentalSummary
+    type: string
+  - name: days
+    label: days
+    type: string
+  - name: approxTotal
+    label: approxTotal
+    type: string
+  - name: notFinal
+    label: notFinal
+    type: string
+  - name: backTours
+    label: backTours
+    type: string
+  - name: backCars
+    label: backCars
+    type: string
+  - name: category
+    label: category
+    type: string
+  - name: model
+    label: model
+    type: string
+  - name: location
+    label: location
+    type: string
+  - name: equipment
+    label: equipment
+    type: string
+  - name: requestTitle
+    label: requestTitle
+    type: string
+  - name: fullName
+    label: fullName
+    type: string
+  - name: email
+    label: email
+    type: string
+  - name: phone
+    label: phone
+    type: string
+  - name: message
+    label: message
+    type: string
+  - name: sendEnquiry
+    label: sendEnquiry
+    type: string
+  - name: copy
+    label: copy
+    type: string
+  - name: openEmail
+    label: openEmail
+    type: string
+  - name: close
+    label: close
+    type: string
+  - name: enquiryReady
+    label: enquiryReady
+    type: string
+  - name: enquiryInfo
+    label: enquiryInfo
+    type: text
+  - name: copied
+    label: copied
+    type: string
+  - name: dateError
+    label: dateError
+    type: string
+  - name: formError
+    label: formError
+    type: string
+  - name: newsTitle
+    label: newsTitle
+    type: string
+  - name: newsText
+    label: newsText
+    type: string
+  - name: aboutTitle
+    label: aboutTitle
+    type: string
+  - name: aboutBody
+    label: aboutBody
+    type: text
+  - name: contactTitle
+    label: contactTitle
+    type: string
+  - name: contactDesc
+    label: contactDesc
+    type: string
+  - name: contactEmail
+    label: contactEmail
+    type: string
+  - name: notConfigured
+    label: notConfigured
+    type: string
+  - name: noteForOperator
+    label: noteForOperator
+    type: string
+  - name: locationYerevan
+    label: locationYerevan
+    type: string
+  - name: locationAirport
+    label: locationAirport
+    type: string
+  - name: rentalConditions
+    label: rentalConditions
+    type: string
+  - name: rentalTermText
+    label: rentalTermText
+    type: text
+  - name: specialRequest
+    label: specialRequest
+    type: string
+  - name: bookNow
+    label: bookNow
+    type: string
+  - name: newRequest
+    label: newRequest
+    type: string
+  - name: exploreDestinations
+    label: exploreDestinations
+    type: string
+  - name: dateRequired
+    label: dateRequired
+    type: string
+  - name: arrival
+    label: arrival
+    type: string
+  - name: departureDate
+    label: departureDate
+    type: string
+  - name: roomCount
+    label: roomCount
+    type: string
+  - name: noContacts
+    label: noContacts
+    type: string
+  - name: all
+    label: all
+    type: string
+  - name: private
+    label: private
+    type: string
+  - name: groupTours
+    label: groupTours
+    type: string
+  - name: quickLinks
+    label: quickLinks
+    type: string
+  - name: type
+    label: type
+    type: string
+  - name: pleaseSelect
+    label: pleaseSelect
+    type: string
+  - name: yourEmail
+    label: yourEmail
+    type: string
+  - name: copyHint
+    label: copyHint
+    type: string
+  - name: fav
+    label: fav
+    type: string
+  - name: saved
+    label: saved
+    type: string
+  - name: noFav
+    label: noFav
+    type: string
+  - name: yourFavorites
+    label: yourFavorites
+    type: string
+  - name: book
+    label: book
+    type: string
+  - name: contactHero
+    label: contactHero
+    type: string
+  - name: intro
+    label: intro
+    type: string
+  - name: imageNote
+    label: imageNote
+    type: string
+  - name: moreCars
+    label: moreCars
+    type: string
+  - name: sortBy
+    label: sortBy
+    type: string
+  - name: maxPrice
+    label: maxPrice
+    type: string
+  - name: allPrices
+    label: allPrices
+    type: string
+  - name: currency
+    label: currency
+    type: string
+  - name: city
+    label: city
+    type: string
+  - name: anyDate
+    label: anyDate
+    type: string
+  - name: carRange
+    label: carRange
+    type: string
+  - name: datePicker
+    label: datePicker
+    type: string
+  - name: mobileNav
+    label: mobileNav
+    type: string
+  - name: whatsapp
+    label: whatsapp
+    type: string
+  - name: callNow
+    label: callNow
+    type: string
+  - name: followUs
+    label: followUs
+    type: string
+  - name: socialComingSoon
+    label: socialComingSoon
+    type: string

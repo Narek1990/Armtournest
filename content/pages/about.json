@@ -1,0 +1,25 @@
+{
+  "copy": {
+    "aboutTitle": {
+      "en": "We help you feel Armenia, not just see it.",
+      "ru": "Мы помогаем почувствовать Армению.",
+      "hy": "Մենք օգնում ենք զգալ Հայաստանը։"
+    },
+    "aboutBody": {
+      "en": "ArmTourNest is a new travel website concept connecting visitors with thoughtfully planned tours, rental cars, transfers and accommodation enquiries. Published prices and vehicles are sample content until the business catalogue is configured.",
+      "ru": "ArmTourNest — новый концепт туристического сайта: авторские туры, аренда авто, трансферы и запросы на проживание. Цены и автопарк являются примером до подключения реального каталога.",
+      "hy": "ArmTourNest-ը զբոսաշրջային կայքի նոր նախատիպ է՝ տուրեր, մեքենաների վարձույթ, տրանսֆերներ և կեցության հարցումներ։ Գներն ու մեքենաները ցուցադրական են՝ մինչև իրական կատալոգի միացումը։"
+    },
+    "whyTitle": {
+      "en": "Why travel with ArmTourNest?",
+      "ru": "Почему ArmTourNest?",
+      "hy": "Ինչո՞ւ ArmTourNest"
+    },
+    "whySubtitle": {
+      "en": "Personal routes. Local perspective. Every detail considered.",
+      "ru": "Продуманные маршруты. Местный опыт. Забота о деталях.",
+      "hy": "Մտածված երթուղիներ։ Տեղական փորձ։ Հոգատար մոտեցում։"
+    }
+  },
+  "heroImage": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1600&q=80"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "yerevan-stays",
+  "name": {
+    "en": "Yerevan stays",
+    "ru": "Проживание в Ереване",
+    "hy": "Կեցություն Երևանում"
+  },
+  "summary": {
+    "en": "City-center hotels, boutique properties and apartments.",
+    "ru": "Отели в центре, бутик-отели и апартаменты.",
+    "hy": "Կենտրոնի հյուրանոցներ, բուտիկ հյուրանոցներ և բնակարաններ։"
+  },
+  "image": "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=900&q=80",
+  "status": "published"
+}

@@ -1,0 +1,92 @@
+{
+  "id": "tatev",
+  "slug": "tatev",
+  "status": "published",
+  "featured": false,
+  "category": "group",
+  "destination": "tatev",
+  "image": "https://images.pexels.com/photos/11885446/pexels-photo-11885446.jpeg?auto=compress&cs=tinysrgb&w=1050",
+  "gallery": [
+    "https://images.pexels.com/photos/11885446/pexels-photo-11885446.jpeg?auto=compress&cs=tinysrgb&w=1050"
+  ],
+  "name": {
+    "en": "Tatev & Wings of Tatev",
+    "ru": "Татев и Крылья Татева",
+    "hy": "Տաթև և Տաթևի թևեր"
+  },
+  "summary": {
+    "en": "A spectacular southern route through deep canyons to historic Tatev monastery.",
+    "ru": "Путешествие на юг через каньоны к древнему Татевскому монастырю.",
+    "hy": "Հարավային տպավորիչ ճանապարհ՝ կիրճերով մինչև Տաթևի պատմական վանք։"
+  },
+  "itinerary": [
+    {
+      "order": 1,
+      "title": {
+        "en": "Scenic drive through Vayots Dzor",
+        "ru": "Поездка через Вайоц Дзор",
+        "hy": "Ճանապարհ Վայոց ձորով"
+      }
+    },
+    {
+      "order": 2,
+      "title": {
+        "en": "Wings of Tatev cableway area",
+        "ru": "Район канатной дороги Крылья Татева",
+        "hy": "Տաթևի թևերի ճոպանուղու տարածք"
+      }
+    },
+    {
+      "order": 3,
+      "title": {
+        "en": "Visit Tatev monastery",
+        "ru": "Посещение Татевского монастыря",
+        "hy": "Այց Տաթևի վանք"
+      }
+    }
+  ],
+  "pricing": {
+    "currency": "AMD",
+    "from": 20000,
+    "unit": "person",
+    "isIndicative": true
+  },
+  "durationHours": 13,
+  "departureCity": "Yerevan",
+  "languages": [
+    "en",
+    "hy",
+    "ru"
+  ],
+  "included": [
+    {
+      "en": "Transportation",
+      "ru": "Транспорт",
+      "hy": "Տրանսպորտ"
+    },
+    {
+      "en": "Route planning",
+      "ru": "Планирование маршрута",
+      "hy": "Երթուղու պլանավորում"
+    }
+  ],
+  "excluded": [
+    {
+      "en": "Food and personal expenses",
+      "ru": "Питание и личные расходы",
+      "hy": "Սնունդ և անձնական ծախսեր"
+    }
+  ],
+  "seo": {
+    "title": {
+      "en": "Tatev & Wings of Tatev",
+      "ru": "Татев и Крылья Татева",
+      "hy": "Տաթև և Տաթևի թևեր"
+    },
+    "description": {
+      "en": "A spectacular southern route through deep canyons to historic Tatev monastery.",
+      "ru": "Путешествие на юг через каньоны к древнему Татевскому монастырю.",
+      "hy": "Հարավային տպավորիչ ճանապարհ՝ կիրճերով մինչև Տաթևի պատմական վանք։"
+    }
+  }
+}

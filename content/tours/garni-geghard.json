@@ -1,0 +1,92 @@
+{
+  "id": "garni-geghard",
+  "slug": "garni-geghard",
+  "status": "published",
+  "featured": true,
+  "category": "group",
+  "destination": "garni",
+  "image": "https://images.pexels.com/photos/20446169/pexels-photo-20446169.jpeg?auto=compress&cs=tinysrgb&w=1050",
+  "gallery": [
+    "https://images.pexels.com/photos/20446169/pexels-photo-20446169.jpeg?auto=compress&cs=tinysrgb&w=1050"
+  ],
+  "name": {
+    "en": "Garni, Geghard & Stone Symphony",
+    "ru": "Гарни, Гегард и Симфония камней",
+    "hy": "Գառնի, Գեղարդ և Քարերի սիմֆոնիա"
+  },
+  "summary": {
+    "en": "Ancient architecture, a carved-rock monastery and dramatic basalt formations.",
+    "ru": "Античный храм, скальный монастырь и необычные базальтовые колонны.",
+    "hy": "Հեթանոսական տաճար, ժայռափոր վանք և բազալտե հրաշալի սյուներ։"
+  },
+  "itinerary": [
+    {
+      "order": 1,
+      "title": {
+        "en": "Charents Arch viewpoint",
+        "ru": "Смотровая арка Чаренца",
+        "hy": "Չարենցի կամար"
+      }
+    },
+    {
+      "order": 2,
+      "title": {
+        "en": "Geghard monastery",
+        "ru": "Монастырь Гегард",
+        "hy": "Գեղարդավանք"
+      }
+    },
+    {
+      "order": 3,
+      "title": {
+        "en": "Garni Temple and basalt gorge",
+        "ru": "Храм Гарни и базальтовое ущелье",
+        "hy": "Գառնիի տաճար և բազալտե կիրճ"
+      }
+    }
+  ],
+  "pricing": {
+    "currency": "AMD",
+    "from": 13500,
+    "unit": "person",
+    "isIndicative": true
+  },
+  "durationHours": 7,
+  "departureCity": "Yerevan",
+  "languages": [
+    "en",
+    "hy",
+    "ru"
+  ],
+  "included": [
+    {
+      "en": "Transportation",
+      "ru": "Транспорт",
+      "hy": "Տրանսպորտ"
+    },
+    {
+      "en": "Route planning",
+      "ru": "Планирование маршрута",
+      "hy": "Երթուղու պլանավորում"
+    }
+  ],
+  "excluded": [
+    {
+      "en": "Food and personal expenses",
+      "ru": "Питание и личные расходы",
+      "hy": "Սնունդ և անձնական ծախսեր"
+    }
+  ],
+  "seo": {
+    "title": {
+      "en": "Garni, Geghard & Stone Symphony",
+      "ru": "Гарни, Гегард и Симфония камней",
+      "hy": "Գառնի, Գեղարդ և Քարերի սիմֆոնիա"
+    },
+    "description": {
+      "en": "Ancient architecture, a carved-rock monastery and dramatic basalt formations.",
+      "ru": "Античный храм, скальный монастырь и необычные базальтовые колонны.",
+      "hy": "Հեթանոսական տաճար, ժայռափոր վանք և բազալտե հրաշալի սյուներ։"
+    }
+  }
+}

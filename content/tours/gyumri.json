@@ -1,0 +1,92 @@
+{
+  "id": "gyumri",
+  "slug": "gyumri",
+  "status": "published",
+  "featured": false,
+  "category": "private",
+  "destination": "gyumri",
+  "image": "https://images.pexels.com/photos/16328598/pexels-photo-16328598.jpeg?auto=compress&cs=tinysrgb&w=1050",
+  "gallery": [
+    "https://images.pexels.com/photos/16328598/pexels-photo-16328598.jpeg?auto=compress&cs=tinysrgb&w=1050"
+  ],
+  "name": {
+    "en": "Private Gyumri Discovery",
+    "ru": "Индивидуальный тур по Гюмри",
+    "hy": "Անհատական տուր Գյումրիում"
+  },
+  "summary": {
+    "en": "Historic streets, warm hospitality and Armenia’s creative northern spirit.",
+    "ru": "Старые улочки, гостеприимство и творческая атмосфера севера Армении.",
+    "hy": "Հին փողոցներ, ջերմ հյուրընկալություն և հյուսիսի ստեղծագործ ոգի։"
+  },
+  "itinerary": [
+    {
+      "order": 1,
+      "title": {
+        "en": "Old Gyumri walking district",
+        "ru": "Прогулка по старому Гюмри",
+        "hy": "Զբոսանք Հին Գյումրիում"
+      }
+    },
+    {
+      "order": 2,
+      "title": {
+        "en": "Crafts and local culture",
+        "ru": "Ремёсла и местная культура",
+        "hy": "Արհեստներ և տեղական մշակույթ"
+      }
+    },
+    {
+      "order": 3,
+      "title": {
+        "en": "Local food experience",
+        "ru": "Знакомство с местной кухней",
+        "hy": "Տեղական խոհանոց"
+      }
+    }
+  ],
+  "pricing": {
+    "currency": "AMD",
+    "from": 54000,
+    "unit": "group",
+    "isIndicative": true
+  },
+  "durationHours": 10,
+  "departureCity": "Yerevan",
+  "languages": [
+    "en",
+    "hy",
+    "ru"
+  ],
+  "included": [
+    {
+      "en": "Transportation",
+      "ru": "Транспорт",
+      "hy": "Տրանսպորտ"
+    },
+    {
+      "en": "Route planning",
+      "ru": "Планирование маршрута",
+      "hy": "Երթուղու պլանավորում"
+    }
+  ],
+  "excluded": [
+    {
+      "en": "Food and personal expenses",
+      "ru": "Питание и личные расходы",
+      "hy": "Սնունդ և անձնական ծախսեր"
+    }
+  ],
+  "seo": {
+    "title": {
+      "en": "Private Gyumri Discovery",
+      "ru": "Индивидуальный тур по Гюмри",
+      "hy": "Անհատական տուր Գյումրիում"
+    },
+    "description": {
+      "en": "Historic streets, warm hospitality and Armenia’s creative northern spirit.",
+      "ru": "Старые улочки, гостеприимство и творческая атмосфера севера Армении.",
+      "hy": "Հին փողոցներ, ջերմ հյուրընկալություն և հյուսիսի ստեղծագործ ոգի։"
+    }
+  }
+}

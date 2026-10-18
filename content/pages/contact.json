@@ -1,0 +1,20 @@
+{
+  "copy": {
+    "contactTitle": {
+      "en": "Let’s plan something memorable.",
+      "ru": "Давайте создадим вашу поездку.",
+      "hy": "Ստեղծենք հիշարժան ուղևորություն։"
+    },
+    "contactDesc": {
+      "en": "Tell us what you need — a trip, a car, a transfer or help finding a place to stay.",
+      "ru": "Нужен тур, автомобиль, трансфер или помощь с гостиницей? Расскажите нам.",
+      "hy": "Պետք է տո՞ւր, մեքենա՞, տրանսֆե՞ր, թե՞ կեցություն։ Պատմեք մեզ։"
+    },
+    "contactHero": {
+      "en": "We are here to help you explore",
+      "ru": "Мы поможем вам открыть Армению",
+      "hy": "Մենք կօգնենք բացահայտել Հայաստանը"
+    }
+  },
+  "heroImage": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1600&q=80"
+}

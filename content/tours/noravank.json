@@ -1,0 +1,92 @@
+{
+  "id": "noravank",
+  "slug": "noravank",
+  "status": "published",
+  "featured": false,
+  "category": "private",
+  "destination": "noravank",
+  "image": "https://images.pexels.com/photos/11885430/pexels-photo-11885430.jpeg?auto=compress&cs=tinysrgb&w=1050",
+  "gallery": [
+    "https://images.pexels.com/photos/11885430/pexels-photo-11885430.jpeg?auto=compress&cs=tinysrgb&w=1050"
+  ],
+  "name": {
+    "en": "Private Noravank & Areni",
+    "ru": "Индивидуальный тур Нораванк и Арени",
+    "hy": "Անհատական տուր՝ Նորավանք և Արենի"
+  },
+  "summary": {
+    "en": "A relaxed private day among red cliffs, monastery heritage and the Areni wine region.",
+    "ru": "Спокойная индивидуальная поездка к красным скалам и винодельням Арени.",
+    "hy": "Հանգիստ անհատական տուր՝ կարմիր ժայռերով և Արենիի գինեգործական վայրերով։"
+  },
+  "itinerary": [
+    {
+      "order": 1,
+      "title": {
+        "en": "Khor Virap panorama stop",
+        "ru": "Панорамная остановка у Хор Вирапа",
+        "hy": "Կանգառ Խոր Վիրապի տեսադաշտում"
+      }
+    },
+    {
+      "order": 2,
+      "title": {
+        "en": "Explore Noravank canyon",
+        "ru": "Исследуйте каньон Нораванк",
+        "hy": "Բացահայտեք Նորավանքի կիրճը"
+      }
+    },
+    {
+      "order": 3,
+      "title": {
+        "en": "Optional Areni wine tasting",
+        "ru": "Дегустация вина в Арени по желанию",
+        "hy": "Ցանկության դեպքում գինու համտես Արենիում"
+      }
+    }
+  ],
+  "pricing": {
+    "currency": "AMD",
+    "from": 62000,
+    "unit": "group",
+    "isIndicative": true
+  },
+  "durationHours": 9,
+  "departureCity": "Yerevan",
+  "languages": [
+    "en",
+    "hy",
+    "ru"
+  ],
+  "included": [
+    {
+      "en": "Transportation",
+      "ru": "Транспорт",
+      "hy": "Տրանսպորտ"
+    },
+    {
+      "en": "Route planning",
+      "ru": "Планирование маршрута",
+      "hy": "Երթուղու պլանավորում"
+    }
+  ],
+  "excluded": [
+    {
+      "en": "Food and personal expenses",
+      "ru": "Питание и личные расходы",
+      "hy": "Սնունդ և անձնական ծախսեր"
+    }
+  ],
+  "seo": {
+    "title": {
+      "en": "Private Noravank & Areni",
+      "ru": "Индивидуальный тур Нораванк и Арени",
+      "hy": "Անհատական տուր՝ Նորավանք և Արենի"
+    },
+    "description": {
+      "en": "A relaxed private day among red cliffs, monastery heritage and the Areni wine region.",
+      "ru": "Спокойная индивидуальная поездка к красным скалам и винодельням Арени.",
+      "hy": "Հանգիստ անհատական տուր՝ կարմիր ժայռերով և Արենիի գինեգործական վայրերով։"
+    }
+  }
+}

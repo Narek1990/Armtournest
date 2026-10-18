@@ -1,0 +1,15 @@
+{
+  "copy": {
+    "tours": {
+      "en": "Tours",
+      "ru": "Туры",
+      "hy": "Տուրեր"
+    },
+    "tourTab": {
+      "en": "Tours",
+      "ru": "Туры",
+      "hy": "Տուրեր"
+    }
+  },
+  "heroImage": "https://images.pexels.com/photos/11885453/pexels-photo-11885453.jpeg?auto=compress&cs=tinysrgb&w=1600"
+}

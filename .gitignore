@@ -1,0 +1,9 @@
+# Generated deploy output and local dependencies
+node_modules/
+dist/
+ArmTourNest-CMS-preview.html
+*.log
+.DS_Store
+.vercel/
+.env*
+!.env.example

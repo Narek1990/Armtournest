@@ -1,0 +1,20 @@
+{
+  "copy": {
+    "cars": {
+      "en": "Car rental",
+      "ru": "Аренда авто",
+      "hy": "Մեքենաների վարձույթ"
+    },
+    "rentalCars": {
+      "en": "Rental cars",
+      "ru": "Аренда автомобилей",
+      "hy": "Վարձույթի մեքենաներ"
+    },
+    "carRange": {
+      "en": "Dates and location",
+      "ru": "Даты и место",
+      "hy": "Օրեր և վայր"
+    }
+  },
+  "heroImage": "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=1600&q=80"
+}

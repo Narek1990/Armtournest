@@ -1,0 +1,111 @@
+{
+  "heroImage": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/Mount_Ararat_and_Khor_Virap_Monastery%2C_Ararat_Plain%2C_Armenia.jpg/1280px-Mount_Ararat_and_Khor_Virap_Monastery%2C_Ararat_Plain%2C_Armenia.jpg",
+  "headline": {
+    "en": "Discover Armenia.",
+    "ru": "Откройте Армению.",
+    "hy": "Բացահայտեք Հայաստանը։"
+  },
+  "eyebrow": {
+    "en": "A COUNTRY OF STORIES & WONDER",
+    "ru": "СТРАНА ВПЕЧАТЛЕНИЙ И ИСТОРИЙ",
+    "hy": "ԲԱՑԱՀԱՅՏՈՒՄՆԵՐԻ ԵՎ ՊԱՏՄՈՒԹՅՈՒՆՆԵՐԻ ԵՐԿԻՐ"
+  },
+  "subtitle": {
+    "en": "Handpicked tours, comfortable transfers, rental cars and exceptional local experiences.",
+    "ru": "Авторские туры, комфортные трансферы, аренда авто и незабываемые впечатления.",
+    "hy": "Հատուկ ընտրված տուրեր, հարմարավետ տրանսֆերներ, մեքենաների վարձույթ և անմոռանալի փորձառություններ։"
+  },
+  "heroLocation": {
+    "en": "Khor Virap · Ararat Valley",
+    "ru": "Хор Вирап · Араратская долина",
+    "hy": "Խոր Վիրապ · Արարատյան դաշտ"
+  },
+  "services": [
+    {
+      "id": "tours",
+      "image": "https://images.pexels.com/photos/11885453/pexels-photo-11885453.jpeg?auto=compress&cs=tinysrgb&w=1000"
+    },
+    {
+      "id": "transfers",
+      "image": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1000&q=80"
+    },
+    {
+      "id": "cars",
+      "image": "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=1000&q=80"
+    },
+    {
+      "id": "hotels",
+      "image": "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=1000&q=80"
+    }
+  ],
+  "why": {
+    "en": [
+      "Locally designed routes",
+      "Flexible private and group options",
+      "Clear requests, personal support"
+    ],
+    "ru": [
+      "Маршруты от местных экспертов",
+      "Групповые и индивидуальные варианты",
+      "Понятные запросы и поддержка"
+    ],
+    "hy": [
+      "Տեղացիների մշակած երթուղիներ",
+      "Խմբային և անհատական տարբերակներ",
+      "Պարզ հարցումներ և աջակցություն"
+    ]
+  },
+  "footerNote": {
+    "en": "Explore more of Armenia with local insight and carefully planned journeys.",
+    "ru": "Увидьте больше Армении с продуманными маршрутами и местным подходом.",
+    "hy": "Բացահայտեք Հայաստանը մտածված երթուղիներով և տեղական փորձառությամբ։"
+  },
+  "copy": {
+    "popular": {
+      "en": "POPULAR EXPERIENCES",
+      "ru": "ПОПУЛЯРНЫЕ ТУРЫ",
+      "hy": "ՀԱՅՏՆԻ ՏՈՒՐԵՐ"
+    },
+    "popularTitle": {
+      "en": "Discover the best of Armenia",
+      "ru": "Лучшие направления Армении",
+      "hy": "Հայաստանի լավագույն ուղղությունները"
+    },
+    "popularDesc": {
+      "en": "The places, stories, and unforgettable moments that bring people back.",
+      "ru": "Места, истории и впечатления, ради которых хочется вернуться.",
+      "hy": "Վայրեր, պատմություններ և անմոռանալի պահեր։"
+    },
+    "carLabel": {
+      "en": "EXPLORE FREELY",
+      "ru": "СВОБОДА ПУТЕШЕСТВИЙ",
+      "hy": "ՃԱՄՓՈՐԴԵՔ ԱԶԱՏ"
+    },
+    "carTitle": {
+      "en": "Find your perfect ride",
+      "ru": "Автомобиль для вашего маршрута",
+      "hy": "Գտեք ձեր մեքենան"
+    },
+    "carDesc": {
+      "en": "From compact city cars to SUVs for a road trip across Armenia.",
+      "ru": "От городских авто до внедорожников для путешествия по Армении.",
+      "hy": "Քաղաքային մեքենաներից մինչև ամենագնացներ՝ Հայաստանի ճանապարհների համար։"
+    },
+    "ctaTitle": {
+      "en": "Your Armenia story begins here.",
+      "ru": "Ваша история в Армении начинается здесь.",
+      "hy": "Ձեր հայկական պատմությունը սկսվում է այստեղ։"
+    },
+    "ctaDesc": {
+      "en": "Tell us what you want to experience. We’ll help plan the journey.",
+      "ru": "Расскажите, что мечтаете увидеть, а мы поможем спланировать поездку.",
+      "hy": "Պատմեք՝ ինչ եք ցանկանում տեսնել, և մենք կօգնենք։"
+    }
+  },
+  "heroAttribution": {
+    "en": "Hero image: © Vyacheslav Argenberg / Wikimedia Commons · CC BY 4.0 (cropped)",
+    "ru": "Главное фото: © Вячеслав Аргенберг / Wikimedia Commons · CC BY 4.0 (кадрировано)",
+    "hy": "Գլխավոր լուսանկար՝ © Վյաչեսլավ Արգենբերգ / Wikimedia Commons · CC BY 4.0"
+  },
+  "heroAttributionUrl": "https://commons.wikimedia.org/wiki/File:Mount_Ararat_and_Khor_Virap_Monastery,_Ararat_Plain,_Armenia.jpg"
+}

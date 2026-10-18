@@ -1,0 +1,20 @@
+{
+  "copy": {
+    "hotelLabel": {
+      "en": "STAY YOUR WAY",
+      "ru": "УДОБНОЕ РАЗМЕЩЕНИЕ",
+      "hy": "ԿԵՑՈՒԹՅՈՒՆ"
+    },
+    "hotelTitle": {
+      "en": "A better base for every journey",
+      "ru": "Отели для любого путешествия",
+      "hy": "Հյուրանոցներ յուրաքանչյուր ճամփորդության համար"
+    },
+    "hotelDesc": {
+      "en": "Tell us your travel dates and preferences and we’ll help you plan your stay.",
+      "ru": "Расскажите о датах и предпочтениях — поможем организовать отдых.",
+      "hy": "Նշեք օրերն ու նախընտրությունները, և մենք կօգնենք պլանավորել։"
+    }
+  },
+  "heroImage": "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=1600&q=80"
+}

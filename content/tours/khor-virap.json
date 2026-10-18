@@ -1,0 +1,92 @@
+{
+  "id": "khor-virap",
+  "slug": "khor-virap",
+  "status": "published",
+  "featured": true,
+  "category": "group",
+  "destination": "khor",
+  "image": "https://images.pexels.com/photos/11885453/pexels-photo-11885453.jpeg?auto=compress&cs=tinysrgb&w=1050",
+  "gallery": [
+    "https://images.pexels.com/photos/11885453/pexels-photo-11885453.jpeg?auto=compress&cs=tinysrgb&w=1050"
+  ],
+  "name": {
+    "en": "Khor Virap & Mount Ararat",
+    "ru": "Хор Вирап и гора Арарат",
+    "hy": "Խոր Վիրապ և Արարատ լեռ"
+  },
+  "summary": {
+    "en": "A journey to Armenia’s iconic monastery with unforgettable views of Mount Ararat.",
+    "ru": "Поездка к знаменитому монастырю с невероятным видом на Арарат.",
+    "hy": "Ճամփորդություն դեպի նշանավոր վանք՝ Արարատի անմոռանալի տեսարաններով։"
+  },
+  "itinerary": [
+    {
+      "order": 1,
+      "title": {
+        "en": "Depart Yerevan · scenic Ararat plain",
+        "ru": "Выезд из Еревана · Араратская долина",
+        "hy": "Մեկնում Երևանից · Արարատյան դաշտ"
+      }
+    },
+    {
+      "order": 2,
+      "title": {
+        "en": "Visit Khor Virap monastery",
+        "ru": "Посещение монастыря Хор Вирап",
+        "hy": "Այց Խոր Վիրապի վանք"
+      }
+    },
+    {
+      "order": 3,
+      "title": {
+        "en": "Photo stops and local stories",
+        "ru": "Фотопаузы и местные истории",
+        "hy": "Լուսանկարչական կանգառներ և պատմություններ"
+      }
+    }
+  ],
+  "pricing": {
+    "currency": "AMD",
+    "from": 12500,
+    "unit": "person",
+    "isIndicative": true
+  },
+  "durationHours": 6,
+  "departureCity": "Yerevan",
+  "languages": [
+    "en",
+    "hy",
+    "ru"
+  ],
+  "included": [
+    {
+      "en": "Transportation",
+      "ru": "Транспорт",
+      "hy": "Տրանսպորտ"
+    },
+    {
+      "en": "Route planning",
+      "ru": "Планирование маршрута",
+      "hy": "Երթուղու պլանավորում"
+    }
+  ],
+  "excluded": [
+    {
+      "en": "Food and personal expenses",
+      "ru": "Питание и личные расходы",
+      "hy": "Սնունդ և անձնական ծախսեր"
+    }
+  ],
+  "seo": {
+    "title": {
+      "en": "Khor Virap & Mount Ararat",
+      "ru": "Хор Вирап и гора Арарат",
+      "hy": "Խոր Վիրապ և Արարատ լեռ"
+    },
+    "description": {
+      "en": "A journey to Armenia’s iconic monastery with unforgettable views of Mount Ararat.",
+      "ru": "Поездка к знаменитому монастырю с невероятным видом на Арарат.",
+      "hy": "Ճամփորդություն դեպի նշանավոր վանք՝ Արարատի անմոռանալի տեսարաններով։"
+    }
+  }
+}

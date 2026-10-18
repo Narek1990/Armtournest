@@ -1,0 +1,49 @@
+{
+  "id": "toyota-landcruiser",
+  "slug": "toyota-landcruiser",
+  "status": "published",
+  "name": {
+    "en": "Toyota Land Cruiser",
+    "ru": "Toyota Land Cruiser",
+    "hy": "Toyota Land Cruiser"
+  },
+  "category": "premium",
+  "transmission": "automatic",
+  "drive": "4WD",
+  "seats": 7,
+  "bags": 5,
+  "fuel": "diesel",
+  "doors": 5,
+  "images": [
+    "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=900&q=80"
+  ],
+  "imageUsage": "Illustrative image; actual fleet vehicle photo to be supplied by operator",
+  "pricing": {
+    "currency": "AMD",
+    "dailyRate": 59000,
+    "isIndicative": true,
+    "minimumDays": 1,
+    "securityDeposit": null
+  },
+  "pickupLocations": [
+    "yerevan",
+    "airport"
+  ],
+  "features": [
+    "air_conditioning",
+    "insurance_on_request",
+    "child_seat_on_request"
+  ],
+  "description": {
+    "en": "Comfortable rental vehicle for exploring Armenia at your own pace. Exact make, model, terms, and availability must be confirmed.",
+    "ru": "Удобный автомобиль для поездок по Армении. Марку, модель, условия и доступность необходимо подтвердить.",
+    "hy": "Հարմար մեքենա Հայաստանում ճամփորդելու համար։ Մոդելը, պայմաններն ու հասանելիությունը պետք է հաստատվեն։"
+  },
+  "seo": {
+    "title": {
+      "en": "Toyota Land Cruiser car rental in Armenia",
+      "ru": "Аренда Toyota Land Cruiser в Армении",
+      "hy": "Toyota Land Cruiser մեքենայի վարձույթ Հայաստանում"
+    }
+  }
+}

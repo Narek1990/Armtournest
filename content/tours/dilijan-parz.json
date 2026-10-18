@@ -1,0 +1,92 @@
+{
+  "id": "dilijan-parz",
+  "slug": "dilijan-parz",
+  "status": "published",
+  "featured": true,
+  "category": "group",
+  "destination": "dilijan",
+  "image": "https://images.pexels.com/photos/29206207/pexels-photo-29206207.jpeg?auto=compress&cs=tinysrgb&w=1050",
+  "gallery": [
+    "https://images.pexels.com/photos/29206207/pexels-photo-29206207.jpeg?auto=compress&cs=tinysrgb&w=1050"
+  ],
+  "name": {
+    "en": "Dilijan & Lake Parz",
+    "ru": "Дилижан и озеро Парз",
+    "hy": "Դիլիջան և Պարզ լիճ"
+  },
+  "summary": {
+    "en": "A refreshing escape into Armenia’s green forests, mountain air and peaceful lake views.",
+    "ru": "Зелёные леса, свежий горный воздух и тихое озеро.",
+    "hy": "Կանաչ անտառներ, լեռնային մաքուր օդ և խաղաղ լճային տեսարաններ։"
+  },
+  "itinerary": [
+    {
+      "order": 1,
+      "title": {
+        "en": "Walk in old Dilijan",
+        "ru": "Прогулка по старому Дилижану",
+        "hy": "Զբոսանք Հին Դիլիջանում"
+      }
+    },
+    {
+      "order": 2,
+      "title": {
+        "en": "Forest roads and Lake Parz",
+        "ru": "Лесные дороги и озеро Парз",
+        "hy": "Անտառային ճանապարհներ և Պարզ լիճ"
+      }
+    },
+    {
+      "order": 3,
+      "title": {
+        "en": "Optional lunch at local restaurant",
+        "ru": "По желанию обед в местном ресторане",
+        "hy": "Ցանկության դեպքում ճաշ տեղական ռեստորանում"
+      }
+    }
+  ],
+  "pricing": {
+    "currency": "AMD",
+    "from": 12000,
+    "unit": "person",
+    "isIndicative": true
+  },
+  "durationHours": 9,
+  "departureCity": "Yerevan",
+  "languages": [
+    "en",
+    "hy",
+    "ru"
+  ],
+  "included": [
+    {
+      "en": "Transportation",
+      "ru": "Транспорт",
+      "hy": "Տրանսպորտ"
+    },
+    {
+      "en": "Route planning",
+      "ru": "Планирование маршрута",
+      "hy": "Երթուղու պլանավորում"
+    }
+  ],
+  "excluded": [
+    {
+      "en": "Food and personal expenses",
+      "ru": "Питание и личные расходы",
+      "hy": "Սնունդ և անձնական ծախսեր"
+    }
+  ],
+  "seo": {
+    "title": {
+      "en": "Dilijan & Lake Parz",
+      "ru": "Дилижан и озеро Парз",
+      "hy": "Դիլիջան և Պարզ լիճ"
+    },
+    "description": {
+      "en": "A refreshing escape into Armenia’s green forests, mountain air and peaceful lake views.",
+      "ru": "Зелёные леса, свежий горный воздух и тихое озеро.",
+      "hy": "Կանաչ անտառներ, լեռնային մաքուր օդ և խաղաղ լճային տեսարաններ։"
+    }
+  }
+}

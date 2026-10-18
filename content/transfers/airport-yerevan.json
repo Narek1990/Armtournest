@@ -1,0 +1,16 @@
+{
+  "id": "airport-yerevan",
+  "name": {
+    "en": "Airport ⇄ Yerevan",
+    "ru": "Аэропорт ⇄ Ереван",
+    "hy": "Օդանավակայան ⇄ Երևան"
+  },
+  "summary": {
+    "en": "Meet-and-greet transfer to your hotel or accommodation.",
+    "ru": "Встреча в аэропорту и трансфер до отеля.",
+    "hy": "Դիմավորում օդանավակայանում և տեղափոխում հյուրանոց։"
+  },
+  "image": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=900&q=80",
+  "price": null,
+  "status": "published"
+}

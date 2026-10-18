@@ -1,0 +1,49 @@
+{
+  "id": "hyundai-accent",
+  "slug": "hyundai-accent",
+  "status": "published",
+  "name": {
+    "en": "Hyundai Accent",
+    "ru": "Hyundai Accent",
+    "hy": "Hyundai Accent"
+  },
+  "category": "economy",
+  "transmission": "automatic",
+  "drive": "FWD",
+  "seats": 5,
+  "bags": 2,
+  "fuel": "petrol",
+  "doors": 5,
+  "images": [
+    "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=900&q=80"
+  ],
+  "imageUsage": "Illustrative image; actual fleet vehicle photo to be supplied by operator",
+  "pricing": {
+    "currency": "AMD",
+    "dailyRate": 17000,
+    "isIndicative": true,
+    "minimumDays": 1,
+    "securityDeposit": null
+  },
+  "pickupLocations": [
+    "yerevan",
+    "airport"
+  ],
+  "features": [
+    "air_conditioning",
+    "insurance_on_request",
+    "child_seat_on_request"
+  ],
+  "description": {
+    "en": "Comfortable rental vehicle for exploring Armenia at your own pace. Exact make, model, terms, and availability must be confirmed.",
+    "ru": "Удобный автомобиль для поездок по Армении. Марку, модель, условия и доступность необходимо подтвердить.",
+    "hy": "Հարմար մեքենա Հայաստանում ճամփորդելու համար։ Մոդելը, պայմաններն ու հասանելիությունը պետք է հաստատվեն։"
+  },
+  "seo": {
+    "title": {
+      "en": "Hyundai Accent car rental in Armenia",
+      "ru": "Аренда Hyundai Accent в Армении",
+      "hy": "Hyundai Accent մեքենայի վարձույթ Հայաստանում"
+    }
+  }
+}

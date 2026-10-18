@@ -1,0 +1,92 @@
+{
+  "id": "yerevan",
+  "slug": "yerevan",
+  "status": "published",
+  "featured": false,
+  "category": "group",
+  "destination": "yerevan",
+  "image": "https://images.pexels.com/photos/31999957/pexels-photo-31999957.jpeg?auto=compress&cs=tinysrgb&w=1050",
+  "gallery": [
+    "https://images.pexels.com/photos/31999957/pexels-photo-31999957.jpeg?auto=compress&cs=tinysrgb&w=1050"
+  ],
+  "name": {
+    "en": "Yerevan City Highlights",
+    "ru": "Главные места Еревана",
+    "hy": "Երևանի տեսարժան վայրերը"
+  },
+  "summary": {
+    "en": "Discover the city’s pink-stone buildings, lively squares and cultural landmarks.",
+    "ru": "Откройте розовый город, его площади и культурные достопримечательности.",
+    "hy": "Բացահայտեք վարդագույն քաղաքն ու նրա մշակութային արժեքները։"
+  },
+  "itinerary": [
+    {
+      "order": 1,
+      "title": {
+        "en": "Republic Square",
+        "ru": "Площадь Республики",
+        "hy": "Հանրապետության հրապարակ"
+      }
+    },
+    {
+      "order": 2,
+      "title": {
+        "en": "Cascade complex",
+        "ru": "Комплекс Каскад",
+        "hy": "Կասկադ համալիր"
+      }
+    },
+    {
+      "order": 3,
+      "title": {
+        "en": "Historic streets and cafés",
+        "ru": "Исторические улицы и кафе",
+        "hy": "Պատմական փողոցներ և սրճարաններ"
+      }
+    }
+  ],
+  "pricing": {
+    "currency": "AMD",
+    "from": 8500,
+    "unit": "person",
+    "isIndicative": true
+  },
+  "durationHours": 4,
+  "departureCity": "Yerevan",
+  "languages": [
+    "en",
+    "hy",
+    "ru"
+  ],
+  "included": [
+    {
+      "en": "Transportation",
+      "ru": "Транспорт",
+      "hy": "Տրանսպորտ"
+    },
+    {
+      "en": "Route planning",
+      "ru": "Планирование маршрута",
+      "hy": "Երթուղու պլանավորում"
+    }
+  ],
+  "excluded": [
+    {
+      "en": "Food and personal expenses",
+      "ru": "Питание и личные расходы",
+      "hy": "Սնունդ և անձնական ծախսեր"
+    }
+  ],
+  "seo": {
+    "title": {
+      "en": "Yerevan City Highlights",
+      "ru": "Главные места Еревана",
+      "hy": "Երևանի տեսարժան վայրերը"
+    },
+    "description": {
+      "en": "Discover the city’s pink-stone buildings, lively squares and cultural landmarks.",
+      "ru": "Откройте розовый город, его площади и культурные достопримечательности.",
+      "hy": "Բացահայտեք վարդագույն քաղաքն ու նրա մշակութային արժեքները։"
+    }
+  }
+}

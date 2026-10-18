@@ -1,0 +1,49 @@
+{
+  "id": "toyota-rav4",
+  "slug": "toyota-rav4",
+  "status": "published",
+  "name": {
+    "en": "Toyota RAV4",
+    "ru": "Toyota RAV4",
+    "hy": "Toyota RAV4"
+  },
+  "category": "suv",
+  "transmission": "automatic",
+  "drive": "AWD",
+  "seats": 5,
+  "bags": 3,
+  "fuel": "petrol",
+  "doors": 5,
+  "images": [
+    "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=900&q=80"
+  ],
+  "imageUsage": "Illustrative image; actual fleet vehicle photo to be supplied by operator",
+  "pricing": {
+    "currency": "AMD",
+    "dailyRate": 28000,
+    "isIndicative": true,
+    "minimumDays": 1,
+    "securityDeposit": null
+  },
+  "pickupLocations": [
+    "yerevan",
+    "airport"
+  ],
+  "features": [
+    "air_conditioning",
+    "insurance_on_request",
+    "child_seat_on_request"
+  ],
+  "description": {
+    "en": "Comfortable rental vehicle for exploring Armenia at your own pace. Exact make, model, terms, and availability must be confirmed.",
+    "ru": "Удобный автомобиль для поездок по Армении. Марку, модель, условия и доступность необходимо подтвердить.",
+    "hy": "Հարմար մեքենա Հայաստանում ճամփորդելու համար։ Մոդելը, պայմաններն ու հասանելիությունը պետք է հաստատվեն։"
+  },
+  "seo": {
+    "title": {
+      "en": "Toyota RAV4 car rental in Armenia",
+      "ru": "Аренда Toyota RAV4 в Армении",
+      "hy": "Toyota RAV4 մեքենայի վարձույթ Հայաստանում"
+    }
+  }
+}

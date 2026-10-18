@@ -1,0 +1,49 @@
+{
+  "brand": {
+    "name": "ArmTourNest",
+    "tagline": {
+      "en": "Discover Armenia, your way.",
+      "ru": "Откройте Армению по-своему.",
+      "hy": "Բացահայտեք Հայաստանը ձեր ձևով։"
+    },
+    "logo": "assets/logo.svg"
+  },
+  "navigation": [
+    "home",
+    "tours",
+    "cars",
+    "transfers",
+    "hotels",
+    "about",
+    "contact"
+  ],
+  "contacts": {
+    "phone": "+37477300037",
+    "whatsapp": "37477300037",
+    "email": "",
+    "address": {
+      "en": "Yerevan, Armenia",
+      "ru": "Ереван, Армения",
+      "hy": "Երևան, Հայաստան"
+    },
+    "social": {
+      "facebook": "",
+      "instagram": ""
+    }
+  },
+  "settings": {
+    "defaultLanguage": "en",
+    "languages": [
+      "en",
+      "ru",
+      "hy"
+    ],
+    "defaultCurrency": "AMD",
+    "currencyOptions": [
+      "AMD"
+    ],
+    "bookingMode": "enquiry",
+    "demoPrices": true,
+    "timezone": "Asia/Yerevan"
+  }
+}

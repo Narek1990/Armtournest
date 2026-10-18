@@ -1,0 +1,15 @@
+{
+  "id": "mountain-retreats",
+  "name": {
+    "en": "Mountain retreats",
+    "ru": "Отдых в горах",
+    "hy": "Հանգիստ լեռներում"
+  },
+  "summary": {
+    "en": "Quiet guesthouses and nature-oriented escapes.",
+    "ru": "Уютные гостевые дома и отдых на природе.",
+    "hy": "Հարմարավետ հյուրատներ և բնության գրկում հանգիստ։"
+  },
+  "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=900&q=80",
+  "status": "published"
+}

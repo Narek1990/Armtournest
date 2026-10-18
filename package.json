@@ -1,0 +1,7 @@
+{
+  "name": "armtournest-website",
+  "private": true,
+  "version": "3.0.0",
+  "scripts": {"build":"node build.mjs"},
+  "description":"ArmTourNest website with Pages CMS (GitHub-backed)"
+}

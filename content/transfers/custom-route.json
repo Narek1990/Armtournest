@@ -1,0 +1,16 @@
+{
+  "id": "custom-route",
+  "name": {
+    "en": "Custom route transfer",
+    "ru": "Трансфер по вашему маршруту",
+    "hy": "Տրանսֆեր ձեր երթուղով"
+  },
+  "summary": {
+    "en": "Choose your own pickup and drop-off locations.",
+    "ru": "Выберите пункты отправления и прибытия.",
+    "hy": "Ընտրեք մեկնման և ժամանման վայրերը։"
+  },
+  "image": "https://images.unsplash.com/photo-1500534623283-312aade485b7?w=900&q=80",
+  "price": null,
+  "status": "published"
+}

@@ -1,0 +1,20 @@
+{
+  "copy": {
+    "transferLabel": {
+      "en": "GO FURTHER",
+      "ru": "В ДОБРЫЙ ПУТЬ",
+      "hy": "ԴԵՊԻ ՆՈՐ ՃԱՆԱՊԱՐՀ"
+    },
+    "transferTitle": {
+      "en": "Transfers made easy",
+      "ru": "Трансферы без хлопот",
+      "hy": "Հարմարավետ տրանսֆերներ"
+    },
+    "transferDesc": {
+      "en": "Airport pickups, intercity rides and custom routes across Armenia and beyond.",
+      "ru": "Трансферы из аэропорта, поездки между городами и индивидуальные маршруты.",
+      "hy": "Օդանավակայանից, քաղաքների միջև և անհատական երթուղիներով։"
+    }
+  },
+  "heroImage": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1600&q=80"
+}

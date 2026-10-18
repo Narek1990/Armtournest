@@ -1,0 +1,92 @@
+{
+  "id": "lake-sevan",
+  "slug": "lake-sevan",
+  "status": "published",
+  "featured": true,
+  "category": "group",
+  "destination": "sevan",
+  "image": "https://images.pexels.com/photos/17589704/pexels-photo-17589704.jpeg?auto=compress&cs=tinysrgb&w=1050",
+  "gallery": [
+    "https://images.pexels.com/photos/17589704/pexels-photo-17589704.jpeg?auto=compress&cs=tinysrgb&w=1050"
+  ],
+  "name": {
+    "en": "Lake Sevan & Sevanavank",
+    "ru": "Озеро Севан и Севанаванк",
+    "hy": "Սևանա լիճ և Սևանավանք"
+  },
+  "summary": {
+    "en": "Turquoise water, panoramic viewpoints and a medieval lakeside monastery.",
+    "ru": "Бирюзовая вода, панорамы и средневековый монастырь у озера.",
+    "hy": "Կապույտ ջրեր, համայնապատկերներ և միջնադարյան վանք լճի ափին։"
+  },
+  "itinerary": [
+    {
+      "order": 1,
+      "title": {
+        "en": "Lakeside scenic stops",
+        "ru": "Остановки у озера",
+        "hy": "Տեսարանային կանգառներ լճի մոտ"
+      }
+    },
+    {
+      "order": 2,
+      "title": {
+        "en": "Explore Sevanavank",
+        "ru": "Экскурсия в Севанаванк",
+        "hy": "Այց Սևանավանք"
+      }
+    },
+    {
+      "order": 3,
+      "title": {
+        "en": "Free time by the lake",
+        "ru": "Свободное время на берегу",
+        "hy": "Ազատ ժամանակ լճի ափին"
+      }
+    }
+  ],
+  "pricing": {
+    "currency": "AMD",
+    "from": 11000,
+    "unit": "person",
+    "isIndicative": true
+  },
+  "durationHours": 8,
+  "departureCity": "Yerevan",
+  "languages": [
+    "en",
+    "hy",
+    "ru"
+  ],
+  "included": [
+    {
+      "en": "Transportation",
+      "ru": "Транспорт",
+      "hy": "Տրանսպորտ"
+    },
+    {
+      "en": "Route planning",
+      "ru": "Планирование маршрута",
+      "hy": "Երթուղու պլանավորում"
+    }
+  ],
+  "excluded": [
+    {
+      "en": "Food and personal expenses",
+      "ru": "Питание и личные расходы",
+      "hy": "Սնունդ և անձնական ծախսեր"
+    }
+  ],
+  "seo": {
+    "title": {
+      "en": "Lake Sevan & Sevanavank",
+      "ru": "Озеро Севан и Севанаванк",
+      "hy": "Սևանա լիճ և Սևանավանք"
+    },
+    "description": {
+      "en": "Turquoise water, panoramic viewpoints and a medieval lakeside monastery.",
+      "ru": "Бирюзовая вода, панорамы и средневековый монастырь у озера.",
+      "hy": "Կապույտ ջրեր, համայնապատկերներ և միջնադարյան վանք լճի ափին։"
+    }
+  }
+}
