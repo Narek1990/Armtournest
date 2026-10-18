@@ -15,9 +15,9 @@
   "fuel": "petrol",
   "doors": 5,
   "images": [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/2018_Kia_Sportage_facelift_1.6.jpg/1200px-2018_Kia_Sportage_facelift_1.6.jpg"
+    "https://commons.wikimedia.org/wiki/Special:FilePath/Kia%20Sportage%20LX%202018%20(38735307170).jpg?width=1280"
   ],
-  "imageUsage": "Representative photograph of the named car model, not a verified picture of an actual rental fleet vehicle.",
+  "imageUsage": "Representative photograph of the named vehicle model; not a confirmed rental fleet vehicle",
   "pricing": {
     "currency": "AMD",
     "dailyRate": 30000,
@@ -45,5 +45,10 @@
       "ru": "Аренда Kia Sportage в Армении",
       "hy": "Kia Sportage մեքենայի վարձույթ Հայաստանում"
     }
+  },
+  "imageCredit": {
+    "label": "Kia Sportage LX 2018",
+    "source": "https://commons.wikimedia.org/wiki/File:Kia_Sportage_LX_2018_(38735307170).jpg",
+    "license": "See linked Wikimedia Commons file page"
   }
 }
