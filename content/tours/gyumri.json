@@ -5,10 +5,8 @@
   "featured": false,
   "category": "private",
   "destination": "gyumri",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Gyumri_central_square_-_%D4%B3%D5%B5%D5%B8%D6%82%D5%B4%D6%80%D5%B8%D6%82_%D5%AF%D5%A5%D5%B6%D5%BF%D6%80%D5%B8%D5%B6%D5%A1%D5%AF%D5%A1%D5%B6_%D5%B0%D6%80%D5%A1%D5%BA%D5%A1%D6%80%D5%A1%D5%AF.jpg/1200px-Gyumri_central_square_-_%D4%B3%D5%B5%D5%B8%D6%82%D5%B4%D6%80%D5%B8%D6%82_%D5%AF%D5%A5%D5%B6%D5%BF%D6%80%D5%B8%D5%B6%D5%A1%D5%AF%D5%A1%D5%B6_%D5%B0%D6%80%D5%A1%D5%BA%D5%A1%D6%80%D5%A1%D5%AF.jpg",
-  "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Gyumri_general_view_from_the_central_square.jpg/1200px-Gyumri_general_view_from_the_central_square.jpg"
-  ],
+  "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Gyumri%20central%20square%20-%20%D4%B3%D5%B5%D5%B8%D6%82%D5%B4%D6%80%D5%B8%D6%82%20%D5%AF%D5%A5%D5%B6%D5%BF%D6%80%D5%B8%D5%B6%D5%A1%D5%AF%D5%A1%D5%B6%20%D5%B0%D6%80%D5%A1%D5%BA%D5%A1%D6%80%D5%A1%D5%AF.jpg?width=1280",
+  "gallery": [],
   "name": {
     "en": "Private Gyumri Discovery",
     "ru": "Индивидуальный тур по Гюмри",
@@ -88,5 +86,10 @@
       "ru": "Старые улочки, гостеприимство и творческая атмосфера севера Армении.",
       "hy": "Հին փողոցներ, ջերմ հյուրընկալություն և հյուսիսի ստեղծագործ ոգի։"
     }
+  },
+  "imageCredit": {
+    "label": "Gyumri central square",
+    "source": "https://commons.wikimedia.org/wiki/File:Gyumri_central_square_-_Գյումրու_կենտրոնական_հրապարակ.jpg",
+    "license": "See linked Wikimedia Commons file page"
   }
 }
