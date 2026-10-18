@@ -6,7 +6,10 @@
   "category": "group",
   "destination": "garni",
   "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Garni%20Temple%2C%20Armenia.jpg?width=1280",
-  "gallery": [],
+  "gallery": [
+    "https://commons.wikimedia.org/wiki/Special:FilePath/Geghard%20monastery.jpg?width=1280",
+    "https://commons.wikimedia.org/wiki/Special:FilePath/Symphony%20of%20stones.jpg?width=1280"
+  ],
   "name": {
     "en": "Garni, Geghard & Stone Symphony",
     "ru": "Гарни, Гегард и Симфония камней",
@@ -91,5 +94,15 @@
     "label": "Garni Temple",
     "source": "https://commons.wikimedia.org/wiki/File:Garni_Temple,_Armenia.jpg",
     "license": "See linked Wikimedia Commons file page"
-  }
+  },
+  "galleryCredits": [
+    {
+      "label": "Geghard monastery",
+      "source": "https://commons.wikimedia.org/wiki/File:Geghard_monastery.jpg"
+    },
+    {
+      "label": "Symphony of Stones",
+      "source": "https://commons.wikimedia.org/wiki/File:Symphony_of_stones.jpg"
+    }
+  ]
 }
