@@ -15,9 +15,9 @@
   "fuel": "diesel",
   "doors": 5,
   "images": [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Mercedes-Benz_Vito_Tourer_W447_Vorderansicht.jpg/1200px-Mercedes-Benz_Vito_Tourer_W447_Vorderansicht.jpg"
+    "https://commons.wikimedia.org/wiki/Special:FilePath/2018%20Mercedes-Benz%20Vito%20119%20Sport%20Bluetec%20Automatic%202.1%20Front.jpg?width=1280"
   ],
-  "imageUsage": "Representative photograph of the named car model, not a verified picture of an actual rental fleet vehicle.",
+  "imageUsage": "Representative photograph of the named vehicle model; not a confirmed rental fleet vehicle",
   "pricing": {
     "currency": "AMD",
     "dailyRate": 42000,
@@ -45,5 +45,10 @@
       "ru": "Аренда Mercedes-Benz Vito в Армении",
       "hy": "Mercedes-Benz Vito մեքենայի վարձույթ Հայաստանում"
     }
+  },
+  "imageCredit": {
+    "label": "2018 Mercedes-Benz Vito",
+    "source": "https://commons.wikimedia.org/wiki/File:2018_Mercedes-Benz_Vito_119_Sport_Bluetec_Automatic_2.1_Front.jpg",
+    "license": "See linked Wikimedia Commons file page"
   }
 }
