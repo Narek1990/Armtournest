@@ -15,9 +15,9 @@
   "fuel": "diesel",
   "doors": 5,
   "images": [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/2018_Toyota_Land_Cruiser_200_Executive_Lounge_white_front.jpg/1200px-2018_Toyota_Land_Cruiser_200_Executive_Lounge_white_front.jpg"
+    "https://commons.wikimedia.org/wiki/Special:FilePath/Toyota%20Land%20Cruiser%20J200%20VX%202018.jpg?width=1280"
   ],
-  "imageUsage": "Representative photograph of the named car model, not a verified picture of an actual rental fleet vehicle.",
+  "imageUsage": "Representative photograph of the named vehicle model; not a confirmed rental fleet vehicle",
   "pricing": {
     "currency": "AMD",
     "dailyRate": 59000,
@@ -45,5 +45,10 @@
       "ru": "Аренда Toyota Land Cruiser в Армении",
       "hy": "Toyota Land Cruiser մեքենայի վարձույթ Հայաստանում"
     }
+  },
+  "imageCredit": {
+    "label": "Toyota Land Cruiser J200 2018",
+    "source": "https://commons.wikimedia.org/wiki/File:Toyota_Land_Cruiser_J200_VX_2018.jpg",
+    "license": "See linked Wikimedia Commons file page"
   }
 }
