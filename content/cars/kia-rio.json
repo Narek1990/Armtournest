@@ -15,9 +15,9 @@
   "fuel": "petrol",
   "doors": 5,
   "images": [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Kia_Rio_Sedan_YB.jpg/1200px-Kia_Rio_Sedan_YB.jpg"
+    "https://commons.wikimedia.org/wiki/Special:FilePath/2022%20Kia%20Rio%20Hatchback.jpg?width=1280"
   ],
-  "imageUsage": "Representative photograph of the named car model, not a verified picture of an actual rental fleet vehicle.",
+  "imageUsage": "Representative photograph of the named vehicle model; not a confirmed rental fleet vehicle",
   "pricing": {
     "currency": "AMD",
     "dailyRate": 18500,
@@ -45,5 +45,10 @@
       "ru": "Аренда Kia Rio в Армении",
       "hy": "Kia Rio մեքենայի վարձույթ Հայաստանում"
     }
+  },
+  "imageCredit": {
+    "label": "2022 Kia Rio Hatchback",
+    "source": "https://commons.wikimedia.org/wiki/File:2022_Kia_Rio_Hatchback.jpg",
+    "license": "See linked Wikimedia Commons file page"
   }
 }
