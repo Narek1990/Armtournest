@@ -10,7 +10,12 @@
     "ru": "Встреча в аэропорту и трансфер до отеля.",
     "hy": "Դիմավորում օդանավակայանում և տեղափոխում հյուրանոց։"
   },
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Zvartnots_Airport_in_Yerevan.jpg/1200px-Zvartnots_Airport_in_Yerevan.jpg",
+  "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Zvartnots%20Airport%20old%20building.jpg?width=1280",
   "price": null,
-  "status": "published"
+  "status": "published",
+  "imageCredit": {
+    "label": "Zvartnots airport",
+    "source": "https://commons.wikimedia.org/wiki/File:Zvartnots_Airport_old_building.jpg",
+    "license": "See linked Wikimedia Commons file page"
+  }
 }
