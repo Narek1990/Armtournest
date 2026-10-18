@@ -7,7 +7,7 @@
     "ru": "Hyundai Accent",
     "hy": "Hyundai Accent"
   },
-  "category": "economy",
+  "category": "sedan",
   "transmission": "automatic",
   "drive": "FWD",
   "seats": 5,
@@ -15,15 +15,14 @@
   "fuel": "petrol",
   "doors": 5,
   "images": [
-    "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=900&q=80"
+    "/media/booster-neon-cosmic-launch-1.png"
   ],
   "imageUsage": "Illustrative image; actual fleet vehicle photo to be supplied by operator",
   "pricing": {
     "currency": "AMD",
-    "dailyRate": 17000,
-    "isIndicative": true,
+    "dailyRate": 15.999,
     "minimumDays": 1,
-    "securityDeposit": null
+    "isIndicative": true
   },
   "pickupLocations": [
     "yerevan",
