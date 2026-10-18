@@ -5,11 +5,8 @@
   "featured": true,
   "category": "group",
   "destination": "garni",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Garni_Temple%2C_Garni%2C_Armenia.jpg/1200px-Garni_Temple%2C_Garni%2C_Armenia.jpg",
-  "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Geghard_Monastery%2C_Armenia.jpg/1200px-Geghard_Monastery%2C_Armenia.jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Symphony_of_Stones%2C_Armenia.jpg/1200px-Symphony_of_Stones%2C_Armenia.jpg"
-  ],
+  "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Garni%20Temple%2C%20Armenia.jpg?width=1280",
+  "gallery": [],
   "name": {
     "en": "Garni, Geghard & Stone Symphony",
     "ru": "Гарни, Гегард и Симфония камней",
@@ -89,5 +86,10 @@
       "ru": "Античный храм, скальный монастырь и необычные базальтовые колонны.",
       "hy": "Հեթանոսական տաճար, ժայռափոր վանք և բազալտե հրաշալի սյուներ։"
     }
+  },
+  "imageCredit": {
+    "label": "Garni Temple",
+    "source": "https://commons.wikimedia.org/wiki/File:Garni_Temple,_Armenia.jpg",
+    "license": "See linked Wikimedia Commons file page"
   }
 }
