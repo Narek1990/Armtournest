@@ -5,10 +5,8 @@
   "featured": false,
   "category": "group",
   "destination": "tatev",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Tatev_Monastery%2C_Tatev%2C_Armenia.jpg/1200px-Tatev_Monastery%2C_Tatev%2C_Armenia.jpg",
-  "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Wings_of_Tatev_Cable_Car_(37202335960).jpg/960px-Wings_of_Tatev_Cable_Car_(37202335960).jpg"
-  ],
+  "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Tatev%20Monastery%2C%20Tatev%2C%20Armenia.jpg?width=1280",
+  "gallery": [],
   "name": {
     "en": "Tatev & Wings of Tatev",
     "ru": "Татев и Крылья Татева",
@@ -88,5 +86,10 @@
       "ru": "Путешествие на юг через каньоны к древнему Татевскому монастырю.",
       "hy": "Հարավային տպավորիչ ճանապարհ՝ կիրճերով մինչև Տաթևի պատմական վանք։"
     }
+  },
+  "imageCredit": {
+    "label": "Tatev Monastery",
+    "source": "https://commons.wikimedia.org/wiki/File:Tatev_Monastery,_Tatev,_Armenia.jpg",
+    "license": "See linked Wikimedia Commons file page"
   }
 }
