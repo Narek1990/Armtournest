@@ -73,13 +73,110 @@ function contactPage(){return `${header(true)}${intro(T('contactTitle'),T('conta
 function enquiryDetails(){const e=S.enquiry;if(!e)return null;let entry=e.type==='tour'?C.tours.find(x=>x.id===e.id):e.type==='car'?C.cars.find(x=>x.id===e.id):e.type==='transfer'?C.services.transfers.find(x=>x.id===e.id):e.type==='hotel'?C.services.hotels.find(x=>x.id===e.id):null;return {entry,name:entry?loc(entry.name):T('ctaButton'),type:e.type}}
 function modalView(){if(!S.enquiry)return '';let e=S.enquiry,{entry,name,type}=enquiryDetails();if(e.step==='ready')return `<div class="modal-overlay" id="modal-overlay"><div class="modal" role="dialog" aria-modal="true" aria-label="${T('enquiryReady')}"><button class="modal-close" data-action="close-modal" aria-label="${T('close')}">${ic('close')}</button><div class="eyebrow">ARMTOURNEST</div><h2>${T('enquiryReady')}</h2><p>${T('enquiryInfo')}</p><textarea class="request-text" id="request-text" readonly>${esc(e.message)}</textarea><div class="modal-btns"><button class="btn dark" data-action="copy-enquiry">${ic('share')} ${T('copy')}</button><button class="btn" data-action="email-enquiry">${ic('mail')} ${T('openEmail')}</button>${waNumber()?`<a class="btn whats-btn" href="https://wa.me/${waNumber()}?text=${encodeURIComponent(e.message)}" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a>`:''}</div><p class="small-note">${T('enquiryInfo')}</p></div></div>`;
  return `<div class="modal-overlay" id="modal-overlay"><div class="modal" role="dialog" aria-modal="true" aria-label="${T('requestTitle')}"><button class="modal-close" data-action="close-modal" aria-label="${T('close')}">${ic('close')}</button><div class="eyebrow">ARMTOURNEST</div><h2>${T('requestTitle')}</h2><p><strong>${esc(name)}</strong><br>${T('notFinal')}</p><form id="enquiry-form"><div class="modal-grid"><label class="field">${T('fullName')} *<input name="customerName" required autocomplete="name" maxlength="140"></label><label class="field">${T('email')} *<input name="customerEmail" type="email" required autocomplete="email" maxlength="220"></label></div><label class="field">${T('phone')}<input name="customerPhone" type="tel" autocomplete="tel" maxlength="40"></label>${type==='transfer'?`<div class="modal-grid"><label class="field">${T('startCity')}<input name="pickupLocation" value="${esc(S.search.from)}"></label><label class="field">${T('endCity')}<input name="dropoffLocation" value="${esc(S.search.to)}"></label></div><label class="field">${T('travelDate')}<input name="preferredDate" type="date" min="${today()}" value="${esc(S.search.date)}"></label>`:''}${type==='hotel'?`<div class="modal-grid"><label class="field">${T('arrival')}<input name="checkin" type="date" min="${today()}" value="${esc(S.search.arrival)}"></label><label class="field">${T('departureDate')}<input name="checkout" type="date" min="${today()}" value="${esc(S.search.departure)}"></label></div>`:''}<label class="field">${T('specialRequest')}<textarea name="customerNotes" rows="3" maxlength="2000"></textarea></label><button type="submit" class="btn block">${T('sendEnquiry')} ${ic('arrow')}</button><p class="small-note">${T('enquiryInfo')}</p></form></div></div>`}
-function render(){document.documentElement.lang=S.lang;const p=paths(),[root,id]=p.split('/');const names={tours:T('tours'),cars:T('cars'),transfers:T('transfers'),hotels:T('hotels'),about:T('about'),contact:T('contact'),saved:T('saved')};document.title=(names[root]||'Discover Armenia')+' | ArmTourNest';let html;if(!root)html=home();else if(root==='tours'&&id)html=detailTour(C.tours.find(x=>x.id===id)||C.tours[0]);else if(root==='cars'&&id)html=detailCar(C.cars.find(x=>x.id===id)||C.cars[0]);else if(root==='tours'||root==='saved')html=catalog('tours',root==='saved');else if(root==='cars')html=catalog('cars');else if(root==='transfers'||root==='hotels')html=servicesPage(root);else if(root==='about')html=aboutPage();else if(root==='contact')html=contactPage();else html=home();$('#app').innerHTML=html+(S.enquiry?modalView():'');document.body.style.overflow=S.enquiry?'hidden':''}
+function render(){document.documentElement.lang=S.lang;const p=paths(),[root,id]=p.split('/');const names={tours:T('tours'),cars:T('cars'),transfers:T('transfers'),hotels:T('hotels'),about:T('about'),contact:T('contact'),saved:T('saved')};document.title=(names[root]||'Discover Armenia')+' | ArmTourNest';let html;if(!root)html=home();else if(root==='tours'&&id)html=detailTour(C.tours.find(x=>x.id===id)||C.tours[0]);else if(root==='cars'&&id)html=detailCar(C.cars.find(x=>x.id===id)||C.cars[0]);else if(root==='tours'||root==='saved')html=catalog('tours',root==='saved');else if(root==='cars')html=catalog('cars');else if(root==='transfers'||root==='hotels')html=servicesPage(root);else if(root==='about')html=aboutPage();else if(root==='contact')html=contactPage();else html=home();$('#app').innerHTML=html+(S.enquiry?modalView():'');document.body.style.overflow=S.enquiry?'hidden':'';enhanceFilters()}
 let toastTimer;function toast(s){let t=$('#toast');t.textContent=s;t.className='toast show';clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.className='toast',3000)}
 function estimateUpdate(){let [root,id]=paths().split('/');let node=$('#total-display');if(!node)return;if(root==='cars'){let c=C.cars.find(x=>x.id===id);if(!c)return;let n=days(S.booking.start,S.booking.end);let d=$('#num-days');if(d)d.textContent=`(${n} ${T('days')})`;node.textContent=money(n*c.pricing.dailyRate)}if(root==='tours'){let t=C.tours.find(x=>x.id===id);if(t)node.textContent=money(t.pricing.from*(t.category==='private'?1:Math.max(1,S.booking.adults)+S.booking.children))}}
 function shareNote(){return T('noteForOperator')}
 function startEnquiry(raw){const [type,id]=raw.split(':');if(type==='car'&&S.booking.start&&S.booking.end&&S.booking.end<=S.booking.start){toast(T('dateError'));return}S.enquiry={type,id,step:'form'};render();setTimeout(()=>$('#enquiry-form input[name="customerName"]')?.focus(),70)}
 function requestMessage(form){const {entry,name,type}=enquiryDetails();const v=Object.fromEntries(new FormData(form).entries());let lines=[`ArmTourNest — ${T('requestTitle')}`,`Language: ${S.lang.toUpperCase()}`,`Service: ${type}`,`Item: ${name}`];if(type==='tour')lines.push(`Preferred date: ${S.booking.date||S.search.date||'Flexible'}`,`Adults: ${S.booking.adults}`,`Children: ${S.booking.children}`,`Guide language: ${S.booking.guide}`,`Indicative total: ${entry?.pricing?money(entry.pricing.from*(entry.category==='private'?1:Math.max(1,S.booking.adults)+S.booking.children)):'to confirm'}`);if(type==='car')lines.push(`Pickup: ${S.booking.start||'Flexible'}`,`Return: ${S.booking.end||'Flexible'}`,`Pickup location: ${S.booking.pickup}`,`Estimated days: ${days(S.booking.start,S.booking.end)}`,`Illustrative total: ${entry?money(entry.pricing.dailyRate*days(S.booking.start,S.booking.end)):'to confirm'}`);if(type==='transfer')lines.push(`Pickup: ${v.pickupLocation||S.search.from}`,`Destination: ${v.dropoffLocation||S.search.to}`,`Travel date: ${v.preferredDate||'Flexible'}`);if(type==='hotel')lines.push(`Check-in: ${v.checkin||'Flexible'}`,`Check-out: ${v.checkout||'Flexible'}`,`Rooms: ${S.search.rooms}`);lines.push('',`Name: ${v.customerName}`,`Email: ${v.customerEmail}`,`Phone: ${v.customerPhone||'-'}`,`Notes: ${v.customerNotes||'-'}`,'',shareNote());return lines.join('\n')}
 function handleChange(el){if(el.dataset.field){let [a,key]=el.dataset.field.split('.');if(a==='search'){S.search[key]=el.value;return}}if(el.dataset.filter){let [a,key]=el.dataset.filter.split(':');let f=a==='car'?S.carFilters:S.tourFilters;f[key]=el.value;render();return}if(el.dataset.book){let key=el.dataset.book;S.booking[key]=['adults','children'].includes(key)?Math.max(key==='adults'?1:0,Math.min(25,+el.value||0)):el.value;estimateUpdate();if(key==='start'){const end=$('[data-book="end"]');if(end)end.min=el.value||today()}}}
-function events(){document.addEventListener('click',async e=>{let langBtn=e.target.closest('[data-lang]');if(langBtn){S.lang=langBtn.dataset.lang;store.setItem('armtournest:language',S.lang);S.langMenu=false;S.menu=false;render();return}let tab=e.target.closest('[data-tab]');if(tab){S.tab=tab.dataset.tab;render();return}let fav=e.target.closest('[data-fav]');if(fav){let id=fav.dataset.fav;if(S.favs.has(id))S.favs.delete(id);else S.favs.add(id);store.setItem('armtournest:favs',JSON.stringify([...S.favs]));render();return}let enquire=e.target.closest('[data-enquire]');if(enquire){startEnquiry(enquire.dataset.enquire);return}let action=e.target.closest('[data-action]');if(action){let k=action.dataset.action;if(k==='lang-open'){S.langMenu=!S.langMenu;S.menu=false;render();return}if(k==='mobile-menu'){S.menu=!S.menu;S.langMenu=false;render();return}if(k==='close-modal'){S.enquiry=null;render();return}if(k==='clear-cars'){S.carFilters={category:'all',transmission:'all',seats:'all',maxPrice:'',sort:'recommended'};render();return}if(k==='clear-tours'){S.tourFilters={category:'all',destination:'all',sort:'recommended',savedOnly:false};render();return}if(k==='copy-enquiry'){try{await navigator.clipboard.writeText(S.enquiry.message);toast(T('copied'))}catch{let txt=$('#request-text');txt?.select();toast(T('copyHint'))}return}if(k==='email-enquiry'){let to=C.site.contacts.email||'';location.href=`mailto:${to}?subject=${encodeURIComponent('ArmTourNest enquiry')}&body=${encodeURIComponent(S.enquiry.message)}`;return}}if(e.target?.id==='modal-overlay'){S.enquiry=null;render();return}if(S.langMenu&&!e.target.closest('.lang-wrap')){S.langMenu=false;render();return}});document.addEventListener('change',e=>handleChange(e.target));document.addEventListener('input',e=>{if(e.target.dataset.field&&e.target.tagName==='INPUT')handleChange(e.target)});document.addEventListener('submit',e=>{if(e.target.id==='hero-search-form'){e.preventDefault();if(S.tab==='tours'){S.tourFilters.destination=S.search.dest;S.tourFilters.category='all';setURL('tours')}else if(S.tab==='cars'){S.booking.start=S.search.start;S.booking.end=S.search.end;S.booking.pickup=S.search.pickup;if(S.search.start&&S.search.end&&S.search.end<=S.search.start){toast(T('dateError'));return}setURL('cars')}else if(S.tab==='transfers'){setURL('transfers');startEnquiry('transfer:custom-route')}else{if(S.search.arrival&&S.search.departure&&S.search.departure<=S.search.arrival){toast(T('dateError'));return}setURL('hotels');startEnquiry('hotel:yerevan-stays')}return}if(e.target.id==='enquiry-form'){e.preventDefault();if(!e.target.reportValidity()){toast(T('formError'));return}S.enquiry.message=requestMessage(e.target);S.enquiry.step='ready';render();return}});document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(S.enquiry)S.enquiry=null;S.langMenu=false;S.menu=false;render()}});window.addEventListener('hashchange',()=>{S.menu=false;S.langMenu=false;S.enquiry=null;render();window.scrollTo({top:0,behavior:'instant'})})}
+function events(){attachFilterAutocomplete();document.addEventListener('click',async e=>{let langBtn=e.target.closest('[data-lang]');if(langBtn){S.lang=langBtn.dataset.lang;store.setItem('armtournest:language',S.lang);S.langMenu=false;S.menu=false;render();return}let tab=e.target.closest('[data-tab]');if(tab){S.tab=tab.dataset.tab;render();return}let fav=e.target.closest('[data-fav]');if(fav){let id=fav.dataset.fav;if(S.favs.has(id))S.favs.delete(id);else S.favs.add(id);store.setItem('armtournest:favs',JSON.stringify([...S.favs]));render();return}let enquire=e.target.closest('[data-enquire]');if(enquire){startEnquiry(enquire.dataset.enquire);return}let action=e.target.closest('[data-action]');if(action){let k=action.dataset.action;if(k==='lang-open'){S.langMenu=!S.langMenu;S.menu=false;render();return}if(k==='mobile-menu'){S.menu=!S.menu;S.langMenu=false;render();return}if(k==='close-modal'){S.enquiry=null;render();return}if(k==='clear-cars'){S.carFilters={category:'all',transmission:'all',seats:'all',maxPrice:'',sort:'recommended'};render();return}if(k==='clear-tours'){S.tourFilters={category:'all',destination:'all',sort:'recommended',savedOnly:false};render();return}if(k==='copy-enquiry'){try{await navigator.clipboard.writeText(S.enquiry.message);toast(T('copied'))}catch{let txt=$('#request-text');txt?.select();toast(T('copyHint'))}return}if(k==='email-enquiry'){let to=C.site.contacts.email||'';location.href=`mailto:${to}?subject=${encodeURIComponent('ArmTourNest enquiry')}&body=${encodeURIComponent(S.enquiry.message)}`;return}}if(e.target?.id==='modal-overlay'){S.enquiry=null;render();return}if(S.langMenu&&!e.target.closest('.lang-wrap')){S.langMenu=false;render();return}});document.addEventListener('change',e=>handleChange(e.target));document.addEventListener('input',e=>{if(e.target.dataset.field&&e.target.tagName==='INPUT')handleChange(e.target)});document.addEventListener('submit',e=>{if(e.target.id==='hero-search-form'){e.preventDefault();if(S.tab==='tours'){S.tourFilters.destination=S.search.dest;S.tourFilters.category='all';setURL('tours')}else if(S.tab==='cars'){S.booking.start=S.search.start;S.booking.end=S.search.end;S.booking.pickup=S.search.pickup;if(S.search.start&&S.search.end&&S.search.end<=S.search.start){toast(T('dateError'));return}setURL('cars')}else if(S.tab==='transfers'){setURL('transfers');startEnquiry('transfer:custom-route')}else{if(S.search.arrival&&S.search.departure&&S.search.departure<=S.search.arrival){toast(T('dateError'));return}setURL('hotels');startEnquiry('hotel:yerevan-stays')}return}if(e.target.id==='enquiry-form'){e.preventDefault();if(!e.target.reportValidity()){toast(T('formError'));return}S.enquiry.message=requestMessage(e.target);S.enquiry.step='ready';render();return}});document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(S.enquiry)S.enquiry=null;S.langMenu=false;S.menu=false;render()}});window.addEventListener('hashchange',()=>{S.menu=false;S.langMenu=false;S.enquiry=null;render();window.scrollTo({top:0,behavior:'instant'})})}
+/* Accessible searchable catalogue filters. A single enhancement layer keeps the CMS data model unchanged. */
+function enhanceFilters(){
+  document.querySelectorAll('select[data-filter]').forEach(select=>{
+    const filterKey=select.dataset.filter;
+    const labelField=select.closest('label.field');
+    if(!labelField)return;
+    const title=labelField.firstChild?.textContent?.trim()||'';
+    const id='filter-'+filterKey.replace(/[^a-z0-9]/gi,'-');
+    const options=[...select.options].map(o=>({value:o.value,label:o.textContent.trim()}));
+    const current=options.find(o=>o.value===select.value)||options[0];
+    const field=document.createElement('div');
+    field.className=labelField.className+' filter-field';
+    const items=options.map((o,i)=>`<button type="button" id="${id}-opt-${i}" role="option" class="filter-option" tabindex="-1" data-filter-choice="${esc(filterKey)}" data-filter-value="${esc(o.value)}" aria-selected="${o.value===current.value?'true':'false'}">${esc(o.label)}</button>`).join('');
+    field.innerHTML=`<label class="filter-label" for="${id}">${esc(title)}</label><div class="filter-combo" data-filter-combo="${esc(filterKey)}"><input id="${id}" class="filter-combo-input" type="search" spellcheck="false" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-haspopup="listbox" aria-controls="${id}-options" aria-label="${esc(title)}" data-filter-input="${esc(filterKey)}" data-selected-label="${esc(current.label)}" value="${esc(current.label)}"><button type="button" class="filter-combo-toggle" aria-label="${esc(title)}" data-filter-toggle="${esc(filterKey)}">${ic('chevron')}</button><div class="filter-options" id="${id}-options" role="listbox" hidden>${items}<div class="filter-no-options" hidden>${esc(T('noResults'))}</div></div></div>`;
+    labelField.replaceWith(field);
+  });
+}
+function closeFilterCombos(except){
+  document.querySelectorAll('.filter-combo').forEach(combo=>{
+    if(combo===except)return;
+    const input=combo.querySelector('[data-filter-input]');
+    if(!input)return;
+    input.value=input.dataset.selectedLabel||'';
+    input.setAttribute('aria-expanded','false');
+    input.removeAttribute('aria-activedescendant');
+    combo.querySelector('.filter-options').hidden=true;
+    combo.classList.remove('open');
+  });
+}
+function showFilterCombo(input,query){
+  const combo=input?.closest('.filter-combo');if(!combo)return;
+  closeFilterCombos(combo);
+  const list=combo.querySelector('.filter-options');
+  const needle=String(query??'').trim().toLocaleLowerCase();
+  const options=[...list.querySelectorAll('[data-filter-choice]')];
+  let first=null,visible=0;
+  options.forEach(option=>{
+    const match=option.textContent.toLocaleLowerCase().includes(needle);
+    option.hidden=!match;
+    option.classList.remove('active');
+    if(match){visible++;if(!first)first=option}
+  });
+  const none=list.querySelector('.filter-no-options');if(none)none.hidden=!!visible;
+  list.hidden=false;combo.classList.add('open');input.setAttribute('aria-expanded','true');
+  if(first){first.classList.add('active');input.setAttribute('aria-activedescendant',first.id)}
+  else input.removeAttribute('aria-activedescendant');
+}
+function chooseFilterOption(option){
+  if(!option)return;
+  const [group,key]=option.dataset.filterChoice.split(':');
+  const filters=group==='car'?S.carFilters:S.tourFilters;
+  filters[key]=option.dataset.filterValue;
+  render();
+}
+function filterComboKeydown(event){
+  const input=event.target.closest?.('[data-filter-input]');
+  if(!input)return;
+  const combo=input.closest('.filter-combo'),list=combo.querySelector('.filter-options');
+  if(event.key==='Escape'){
+    if(!list.hidden){event.preventDefault();event.stopPropagation();closeFilterCombos();}
+    return;
+  }
+  if(event.key==='Tab'){closeFilterCombos();return;}
+  if(!['ArrowDown','ArrowUp','Enter'].includes(event.key))return;
+  event.preventDefault();event.stopPropagation();
+  if(list.hidden){showFilterCombo(input,'');if(event.key==='Enter')return;}
+  const visible=[...list.querySelectorAll('[data-filter-choice]')].filter(o=>!o.hidden);
+  if(!visible.length)return;
+  const active=visible.findIndex(o=>o.classList.contains('active'));
+  if(event.key==='Enter')return chooseFilterOption(visible[Math.max(0,active)]);
+  const next=visible[(active+(event.key==='ArrowDown'?1:-1)+visible.length)%visible.length];
+  visible.forEach(o=>o.classList.toggle('active',o===next));
+  input.setAttribute('aria-activedescendant',next.id);
+  next.scrollIntoView({block:'nearest'});
+}
+function attachFilterAutocomplete(){
+  document.addEventListener('click',event=>{
+    const choice=event.target.closest('[data-filter-choice]');
+    if(choice){event.preventDefault();chooseFilterOption(choice);return;}
+    const toggle=event.target.closest('[data-filter-toggle]');
+    if(toggle){event.preventDefault();const combo=toggle.closest('.filter-combo'),input=combo.querySelector('[data-filter-input]');
+      if(combo.classList.contains('open'))closeFilterCombos();else{input.focus();showFilterCombo(input,'');}
+      return;
+    }
+    const input=event.target.closest('[data-filter-input]');
+    if(input){showFilterCombo(input,'');input.select();return;}
+    closeFilterCombos();
+  });
+  document.addEventListener('input',event=>{
+    const input=event.target.closest?.('[data-filter-input]');if(input)showFilterCombo(input,input.value);
+  });
+  document.addEventListener('focusin',event=>{
+    const input=event.target.closest?.('[data-filter-input]');if(input)showFilterCombo(input,'');
+  });
+  document.addEventListener('keydown',filterComboKeydown,true);
+}
+
 async function init(){try{const data=window.__ARMTOURNEST_DATA__ || await fetch('content/runtime.json').then(r=>{if(!r.ok)throw Error('Cannot load CMS data');return r.json()});['site','tours','cars','services','translations','pages','pageCopy'].forEach(n=>C[n]=data[n]);C.site.home=C.pages?.home||C.site.home; if(!C.translations[S.lang])S.lang=C.site.settings?.defaultLanguage||'en'; events();render()}catch(e){console.error(e);$('#app').innerHTML='<div class="empty-screen">Unable to load website content. Please reload.</div>'}}
 init();
