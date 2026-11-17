@@ -24,7 +24,13 @@ const pathAttr=(path)=>encodeURIComponent(JSON.stringify(path));
 const readPath=(input)=>JSON.parse(decodeURIComponent(input));
 const at=(obj,path)=>path.reduce((a,k)=>a?.[k],obj);
 function assign(obj,path,value){let v=obj;for(let i=0;i<path.length-1;i++){if(v[path[i]]==null)v[path[i]]=typeof path[i+1]==='number'?[]:{};v=v[path[i]];}v[path[path.length-1]]=value;}
-const imageUrl=(p)=>!p?'':p.startsWith('/')?originSite+p:p.startsWith('media/')?originSite+'/'+p:p;
+const imageUrl=p=>{
+ if(!p)return '';
+ const value=String(p).trim();
+ if(value.startsWith('/media/')||value.startsWith('media/'))
+   return '/api/media?path='+encodeURIComponent(value);
+ return value.startsWith('/')?originSite+value:value;
+};
 function image(p,alt){return p?'<img src="'+h(imageUrl(p))+'" loading="lazy" alt="'+h(alt||'Preview')+'">':'<span aria-hidden="true">▧</span>'}
 function login(){
  return '<main class="login"><section class="login-card"><div class="logo-mark">A</div><div class="eyebrow">ARMTOURNEST · CONTENT STUDIO</div><h1>Welcome back</h1><p>Edit tours, cars, prices, photos and translations from your own dashboard.</p>'+
@@ -53,13 +59,22 @@ function field(value,key,path,depth=0) {
  if(value&&typeof value==='object')return '<fieldset class="group"><legend>'+h(title(key))+'</legend>'+Object.entries(value).map(([k,v])=>field(v,k,[...path,k],depth+1)).join('')+'</fieldset>';
  if(typeof value==='boolean')return '<label class="field-check"><input type="checkbox" '+attr+' '+(value?'checked':'')+'>'+h(title(key))+'</label>';
  const isImage=['image','heroImage','logo','background'].includes(key)||((key==='images'||key==='gallery')&&typeof value==='string')||(typeof value==='string'&&path.some(p=>p==='images'||p==='gallery'));
- const label=LABELS[key]||title(key);
+ const label=(path.some(x=>x==='images'||x==='gallery') && /^[0-9]+$/.test(String(key)))?
+ 'Фото '+(Number(key)+1):(LABELS[key]||title(key));
  const sel=optionList(key);
  if(sel)return '<div class="field"><label>'+h(label)+'</label><select class="control" '+attr+'>'+sel.map(v=>'<option value="'+h(v)+'" '+(String(value)===v?'selected':'')+'>'+h(title(v))+'</option>').join('')+'</select></div>';
  if(typeof value==='number')return '<div class="field"><label>'+h(label)+'</label><input class="control" '+attr+' type="number" min="0" step="any" value="'+h(value)+'"></div>';
  const multiline=typeof value==='string'&&(value.length>170||['summary','description','body','imageUsage','message'].includes(key));
  let control=multiline?'<textarea class="control" rows="4" '+attr+'>'+h(value)+'</textarea>':'<input class="control" '+attr+' type="text" value="'+h(value??'')+'" '+(key==='id'&&S.sha?'readonly':'')+'>';
- if(isImage)control+='<div class="image-preview">'+image(String(value||''),label)+'</div><div class="upload-row"><label class="btn small">Upload photo <input type="file" accept="image/jpeg,image/png,image/webp" data-upload="'+pathAttr(path)+'" hidden></label><small>Auto-resized to 1600px; maximum 2 MB.</small></div>';
+ if(isImage){
+ const preview='<div class="image-preview">'+image(String(value||''),label)+'</div>';
+ const picker='<div class="upload-row"><label class="btn small upload-action">'+
+ (value?'Заменить фото':'Загрузить фото')+
+ '<input type="file" accept="image/jpeg,image/png,image/webp" data-upload="'+pathAttr(path)+'" hidden></label>'+
+ '<small>JPG, PNG, WebP · до 8 МБ · сжатие автоматически</small></div>';
+ return '<div class="field image-field"><label>'+h(label)+'</label>'+preview+picker+
+ '<details class="image-url-details"><summary>Вставить ссылку на изображение</summary>'+control+'</details></div>';
+}
  return '<div class="field"><label>'+h(label)+'</label>'+control+'</div>';
 }
 function liveHref(){if(S.area==='cars'||S.area==='tours')return originSite+'/#/'+S.area+'/'+encodeURIComponent(S.id||S.editor?.id||'');if(S.area==='pages')return originSite+'/#/'+(S.id==='home'?'':S.id);return originSite;}
@@ -120,7 +135,7 @@ async function uploadImage(input){
    const buffer=await blob.arrayBuffer();const bytes=new Uint8Array(buffer);
    let binary='';for(let i=0;i<bytes.length;i+=32768)binary+=String.fromCharCode(...bytes.subarray(i,i+32768));
    const out=await req('/api/data',{method:'POST',body:JSON.stringify({action:'upload',mime:'image/webp',base64:btoa(binary),type:S.area})});
-   setValue(path,out.path);render();notice('Photo uploaded to media library. Save your entry to publish it.');
+   setValue(path,out.path);render();notice('Фото загружено. Нажмите «Сохранить», чтобы опубликовать.');
  }catch(e){notice('Upload failed: '+e.message,true);}
 }
 function arrayAdd(path){
@@ -131,6 +146,17 @@ function arrayAdd(path){
  else if(a.length&&a[0]&&typeof a[0]==='object')blank=Object.fromEntries(Object.keys(a[0]).map(k=>[k,typeof a[0][k]==='object'?{en:'',ru:'',hy:''}:'']));
  a.push(blank);S.dirty=true;render();
 }
+document.addEventListener('error',e=>{
+ if(e.target?.tagName!=='IMG')return;
+ const wrapper=e.target.closest('.image-preview,.item-thumb');
+ if(!wrapper)return;
+ e.target.style.display='none';
+ if(!wrapper.querySelector('.photo-error')){
+   const p=document.createElement('div');p.className='photo-error';
+   p.textContent='Не удалось показать фото. Загрузите другое изображение.';
+   wrapper.append(p);
+ }
+},true);
 document.addEventListener('submit',async e=>{
  if(e.target?.id!=='cms-login-form')return;
  e.preventDefault();if(S.loginBusy)return;
