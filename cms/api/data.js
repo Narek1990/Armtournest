@@ -7,7 +7,7 @@ const cover = x => {
   const v = x.images?.[0] || x.image || x.heroImage || '';
   return typeof v === 'string' ? v : '';
 };
-const friendly = x => (typeof x.name === 'object' ? (x.name.en || x.name.ru || x.name.hy) : x.name) ||
+const friendly = x => (typeof x.name === 'object' ? (x.name.ru || x.name.en || x.name.hy) : x.name) ||
   x.title?.en || x.headline?.en || x.id || 'Unnamed item';
 function checkImage(bytes, mime) {
   if (mime === 'image/png') return bytes.subarray(0,8).equals(Buffer.from([137,80,78,71,13,10,26,10]));
