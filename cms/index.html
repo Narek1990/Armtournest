@@ -5,6 +5,16 @@
 <meta name="robots" content="noindex,nofollow">
 <meta name="description" content="ArmTourNest content management">
 <meta name="theme-color" content="#102a3e">
+<script>
+/* Strip ChatGPT attribution from the visible URL while preserving CMS routes. */
+(()=>{try{
+  const u=new URL(location.href);
+  if((u.searchParams.get('utm_source')||'').toLowerCase()==='chatgpt.com'){
+    u.searchParams.delete('utm_source');
+    history.replaceState(history.state,'',u.pathname+u.search+u.hash);
+  }
+}catch(_){}})();
+</script>
 <title>ArmTourNest — Content Studio</title>
 <link rel="stylesheet" href="/style.css">
 </head>
