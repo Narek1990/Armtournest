@@ -29,3 +29,13 @@ Password, token and session key remain in Vercel server-side environment variabl
 Current implementation has **one editor account**; no per-person audit trail, self-service password recovery, or separate permission roles. Use a designated editor with a unique password. For larger teams, add a managed identity provider.
 
 Cloudflare CNAME for `cms` points to `46a5d5d45a8cd017.vercel-dns-017.com` (DNS only). The public website stays separate.
+
+
+## Фото и русский интерфейс
+
+- Интерфейс CMS по умолчанию на русском языке. В редакторе можно переключаться между русским, английским и армянским содержимым сайта.
+- Изображения до 8 МБ загружаются через форму CMS, сжимаются в WebP до 2 МБ и сохраняются в репозитории GitHub (каталог `media/`).
+- **Отдельное облако хранения на этом этапе не требуется**.
+- После загрузки исходное фото отображается через защищённый `/api/media?path=...` (только для вошедшего сотрудника). Исходные изображения не зависят от оптимизированной публичной сборки.
+- После загрузки нажмите `Сохранить`, чтобы прикрепить фото к записи и запустить публикацию сайта. Несохранённые изменения не публикуются.
+- Публичный сайт обрабатывает и публикует только изображения, используемые сохранёнными записями; необязательные исходники остаются в GitHub и доступны только из CMS через защищённый API.
