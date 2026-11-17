@@ -20,7 +20,7 @@
   "imageUsage": "Representative photograph of the named vehicle model; not a confirmed rental fleet vehicle",
   "pricing": {
     "currency": "AMD",
-    "dailyRate": 450,
+    "dailyRate": 450000,
     "minimumDays": 45,
     "isIndicative": true
   },
