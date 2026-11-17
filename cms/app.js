@@ -42,7 +42,7 @@ function field(value,key,path,depth=0) {
  if(Array.isArray(value))return '<fieldset class="group"><legend>'+h(title(key))+' ('+value.length+')</legend>'+value.map((item,index)=>'<div class="listrow"><div class="listhead"><b>Item '+(index+1)+'</b><button class="btn small danger" data-remove="'+pathAttr([...path,index])+'">Remove</button></div>'+field(item,String(index),[...path,index],depth+1)+'</div>').join('')+'<button class="btn small" data-add="'+pathAttr(path)+'">＋ Add item</button></fieldset>';
  if(value&&typeof value==='object')return '<fieldset class="group"><legend>'+h(title(key))+'</legend>'+Object.entries(value).map(([k,v])=>field(v,k,[...path,k],depth+1)).join('')+'</fieldset>';
  if(typeof value==='boolean')return '<label class="field-check"><input type="checkbox" '+attr+' '+(value?'checked':'')+'>'+h(title(key))+'</label>';
- const isImage=['image','heroImage','logo','background'].includes(key)||((key==='images'||key==='gallery')&&typeof value==='string')||((typeof path.at(-2)==='number')&&/(images|gallery)/i.test(path.join('/')));
+ const isImage=['image','heroImage','logo','background'].includes(key)||((key==='images'||key==='gallery')&&typeof value==='string')||(typeof value==='string'&&path.some(p=>p==='images'||p==='gallery'));
  const label=LABELS[key]||title(key);
  const sel=optionList(key);
  if(sel)return '<div class="field"><label>'+h(label)+'</label><select class="control" '+attr+'>'+sel.map(v=>'<option value="'+h(v)+'" '+(String(value)===v?'selected':'')+'>'+h(title(v))+'</option>').join('')+'</select></div>';
