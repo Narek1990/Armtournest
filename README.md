@@ -38,7 +38,7 @@ The current `armtournest-demo.vercel.app` is an accessible *demo*, not the final
 - **Change homepage:** Page: Home → hero image and localized fields → Save.
 - **Change any other page:** Page: About / Contact / Cars / Tours / Transfers / Hotels → edit hero image and per-language copy → Save.
 - **Add a social link:** Website settings → contacts → social → enter complete `https://` Facebook and Instagram profile URLs → Save. The header icons become active.
-- **Change WhatsApp/phone:** Website settings → contacts → edit `phone` and `whatsapp`. WhatsApp value must contain digits, e.g. `37477300037`.
+- **Change WhatsApp/phone:** Website settings → contacts → edit `phone` and `whatsapp`. Leave both blank to hide phone and WhatsApp links; otherwise use a valid contact number.
 - **Hide a vehicle without deleting it:** set `status` to `draft` or `archived`.
 
 ## Local development / build

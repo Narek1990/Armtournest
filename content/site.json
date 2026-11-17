@@ -18,8 +18,8 @@
     "contact"
   ],
   "contacts": {
-    "phone": "+37477300037",
-    "whatsapp": "37477300037",
+    "phone": "",
+    "whatsapp": "",
     "email": "",
     "address": {
       "en": "Yerevan, Armenia",
@@ -27,8 +27,8 @@
       "hy": "Երևան, Հայաստան"
     },
     "social": {
-      "facebook": "",
-      "instagram": ""
+      "facebook": "https://www.facebook.com/profile.php?id=61595455176886",
+      "instagram": "https://www.instagram.com/armtournest/"
     }
   },
   "settings": {
