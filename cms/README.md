@@ -25,7 +25,7 @@ Open https://github.com/settings/developers → OAuth Apps → New OAuth App:
 
 - Application name: ArmTourNest Content Studio
 - Homepage URL: `https://cms.armtournest.com`
-- Authorization callback URL: `https://cms.armtournest.com/api/auth?action=callback`
+- Authorization callback URL: `https://cms.armtournest.com/api/callback`
 
 Use the OAuth Client ID and Client Secret as *encrypted Vercel environment variables*; do not add them to the repository. The authorization requests `public_repo` (GitHub public repository read/write) and restricts access to the existing repository owner.
 

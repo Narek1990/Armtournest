@@ -13,7 +13,7 @@ export default async function handler(req, res) {
     res.setHeader('Set-Cookie', cookieHeader('__Host-armtournest_oauth', state, 600));
     const u = new URL('https://github.com/login/oauth/authorize');
     u.searchParams.set('client_id', process.env.GITHUB_CLIENT_ID);
-    u.searchParams.set('redirect_uri', BASE_URL + '/api/auth?action=callback');
+    u.searchParams.set('redirect_uri', BASE_URL + '/api/callback');
     u.searchParams.set('scope', 'public_repo');
     u.searchParams.set('state', state);
     return res.redirect(u.toString());
@@ -32,7 +32,7 @@ export default async function handler(req, res) {
           client_id: process.env.GITHUB_CLIENT_ID,
           client_secret: process.env.GITHUB_CLIENT_SECRET,
           code: String(req.query.code),
-          redirect_uri: BASE_URL + '/api/auth?action=callback'
+          redirect_uri: BASE_URL + '/api/callback'
         }),
         signal: AbortSignal.timeout(18000)
       });
