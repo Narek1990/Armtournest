@@ -1,5 +1,4 @@
-import handler from './auth.js';
-export default function callback(req, res) {
-  req.query = { ...req.query, action: 'callback' };
-  return handler(req, res);
+export default function handler(_req,res){
+ res.setHeader('Cache-Control','no-store');
+ return res.status(410).json({error:'This CMS uses username and password sign-in.'});
 }

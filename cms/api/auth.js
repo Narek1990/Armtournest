@@ -1,62 +1,41 @@
 import crypto from 'node:crypto';
-import { OWNER, REPO, BASE_URL, ready, cookie, cookieHeader, encrypt, session, github, reply, csrf } from '../lib/server.mjs';
-
-export default async function handler(req, res) {
-  const action = String(req.query.action || 'session');
-  if (req.method === 'GET' && action === 'session') {
-    const s = session(req);
-    return reply(res, 200, { configured: ready(), authenticated: Boolean(s), user: s ? s.user : null, loginUrl: '/api/auth?action=login' });
+import { OWNER, REPO, ready, serviceToken, authVersion, session, cookieHeader, encrypt, github, reply, csrf } from '../lib/server.mjs';
+const failures=new Map(), windowMs=15*60*1000;
+const ip=req=>crypto.createHash('sha256').update(String(req.headers['x-vercel-forwarded-for']||req.headers['x-forwarded-for']||'unknown').split(',')[0]).digest('hex').slice(0,20);
+const same=(a,b)=>crypto.timingSafeEqual(crypto.createHash('sha256').update(String(a)).digest(),crypto.createHash('sha256').update(String(b)).digest());
+export default async function handler(req,res){
+ const action=String(req.query.action||'session');
+ if(req.method==='GET'&&action==='session'){
+  const s=session(req);return reply(res,200,{configured:ready(),authenticated:Boolean(s),user:s?.user||null});
+ }
+ if(req.method==='POST'&&action==='login'){
+  if(!csrf(req))return reply(res,403,{error:'Invalid origin'});
+  if(!ready())return reply(res,503,{error:'Staff account setup is incomplete. Contact the site owner.'});
+  let data=req.body;try{if(typeof data==='string')data=JSON.parse(data)}catch{data=null}
+  const username=String(data?.username||'').trim(),password=String(data?.password||'');
+  if(!username||!password||username.length>128||password.length>256)return reply(res,400,{error:'Enter a valid username and password'});
+  const key=ip(req),row=failures.get(key),now=Date.now();
+  if(row&&row.count>=8&&now-row.since<windowMs)return reply(res,429,{error:'Too many attempts. Try again later.'});
+  if(!same(username,process.env.CMS_EDITOR_USERNAME)||!same(password,process.env.CMS_EDITOR_PASSWORD)){
+   if(failures.size>1000)failures.clear();
+   failures.set(key,row&&now-row.since<windowMs?{since:row.since,count:row.count+1}:{since:now,count:1});
+   await new Promise(done=>setTimeout(done,650));
+   return reply(res,401,{error:'Invalid username or password'});
   }
-  if (req.method === 'GET' && action === 'login') {
-    if (!ready()) return res.redirect('/?setup=required');
-    const state = crypto.randomBytes(32).toString('base64url');
-    res.setHeader('Set-Cookie', cookieHeader('__Host-armtournest_oauth', state, 600));
-    const u = new URL('https://github.com/login/oauth/authorize');
-    u.searchParams.set('client_id', process.env.GITHUB_CLIENT_ID);
-    u.searchParams.set('redirect_uri', BASE_URL + '/api/callback');
-    u.searchParams.set('scope', 'public_repo');
-    u.searchParams.set('state', state);
-    return res.redirect(u.toString());
-  }
-  if (req.method === 'GET' && action === 'callback') {
-    const state = String(req.query.state || '');
-    const stored = cookie(req, '__Host-armtournest_oauth');
-    res.setHeader('Set-Cookie', cookieHeader('__Host-armtournest_oauth', '', 0));
-    if (!ready() || !state || !stored || state.length !== stored.length || !crypto.timingSafeEqual(Buffer.from(state), Buffer.from(stored))) return res.redirect('/?error=invalid-state');
-    if (!req.query.code || req.query.error) return res.redirect('/?error=github-consent');
-    try {
-      const tokenResp = await fetch('https://github.com/login/oauth/access_token', {
-        method: 'POST',
-        headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          client_id: process.env.GITHUB_CLIENT_ID,
-          client_secret: process.env.GITHUB_CLIENT_SECRET,
-          code: String(req.query.code),
-          redirect_uri: BASE_URL + '/api/callback'
-        }),
-        signal: AbortSignal.timeout(18000)
-      });
-      const data = await tokenResp.json();
-      if (!tokenResp.ok || !data.access_token) throw new Error('GitHub authorization failed');
-      const user = await github(data.access_token, '/user');
-      if (String(user.login).toLowerCase() !== OWNER.toLowerCase()) throw new Error('Only the ArmTourNest repository owner can sign in');
-      const repo = await github(data.access_token, '/repos/' + OWNER + '/' + REPO);
-      if (!repo.permissions?.push) throw new Error('No write access to the ArmTourNest repository');
-      const payload = { user: OWNER, token: data.access_token, exp: Date.now() + 4*3600*1000 };
-      res.setHeader('Set-Cookie', [
-        cookieHeader('__Host-armtournest_oauth', '', 0),
-        cookieHeader('__Host-armtournest_session', encrypt(payload), 4*3600)
-      ]);
-      return res.redirect('/');
-    } catch (e) {
-      console.error('CMS OAuth:', e.message);
-      return res.redirect('/?error=access-denied');
-    }
-  }
-  if (req.method === 'POST' && action === 'logout') {
-    if (!csrf(req)) return reply(res, 403, { error: 'Invalid origin' });
-    res.setHeader('Set-Cookie', cookieHeader('__Host-armtournest_session', '', 0));
-    return reply(res, 200, { ok: true });
-  }
-  return reply(res, 404, { error: 'Unknown action' });
+  try{
+   const repository=await github(serviceToken(),'/repos/'+OWNER+'/'+REPO);
+   if(!repository.permissions?.push)throw Error('Repository token lacks write access');
+  }catch(e){console.error('CMS repository:',e.status||e.message);
+   return reply(res,503,{error:'Publishing connection needs setup. Contact the site owner.'})}
+  failures.delete(key);
+  const maxAge=4*3600,user=process.env.CMS_EDITOR_USERNAME;
+  res.setHeader('Set-Cookie',cookieHeader('__Host-armtournest_session',encrypt({user,version:authVersion(),exp:Date.now()+maxAge*1000}),maxAge));
+  return reply(res,200,{authenticated:true,user});
+ }
+ if(req.method==='POST'&&action==='logout'){
+  if(!csrf(req))return reply(res,403,{error:'Invalid origin'});
+  res.setHeader('Set-Cookie',cookieHeader('__Host-armtournest_session','',0));
+  return reply(res,200,{ok:true});
+ }
+ return reply(res,404,{error:'Unknown action'});
 }

@@ -1,51 +1,31 @@
-# ArmTourNest Content Studio
+# ArmTourNest Content Studio — Standalone staff CMS
 
-A separate authenticated admin application for the existing `Narek1990/Armtournest` GitHub-backed tourism site.
+**CMS:** https://cms.armtournest.com/  
+**Website:** https://armtournest.com/  
+**Hosting:** Vercel project `armtournest-cms`, repo `Narek1990/Armtournest`, Root Directory `cms`.
 
-- **Production:** https://cms.armtournest.com
-- **Public site:** https://armtournest.com
-- **Hosting:** Independent Vercel project `armtournest-cms` with repository root directory `cms`
-- **Authentication:** GitHub OAuth App; only GitHub owner `Narek1990` is accepted
-- **Content storage:** Existing `content/*.json` files in GitHub. No separate database
-- **Image uploads:** Browser-side WebP resizing plus server-side MIME/size checks, committed to `media/`
-- **Publishing:** GitHub commit on branch `main` triggers the existing Vercel public website build
+The CMS is independent of GitHub's technical UI. A staff member signs in with a username and password, edits content in a visual dashboard, and saves. The CMS server makes repository commits using a tightly restricted credential; the public website automatically deploys.
 
-## Required Vercel production environment variables
+## Owner: one-time activation
 
-```env
-CMS_BASE_URL=https://cms.armtournest.com
-GITHUB_CLIENT_ID=<set in Vercel>
-GITHUB_CLIENT_SECRET=<set in Vercel (sensitive)>
-CMS_SESSION_KEY=<generated 32+ bytes, set in Vercel (sensitive)>
-```
+In Vercel → armtournest-cms → Settings → Environment Variables, add for **Production**:
 
-### Create a GitHub OAuth App
+1. `CMS_EDITOR_USERNAME` — choose a staff login, e.g. `editor`.
+2. `CMS_EDITOR_PASSWORD` — choose a strong, unique password **14+ characters**. Set type **Sensitive**.
+3. `CMS_GITHUB_TOKEN` — GitHub **fine-grained PAT**, select resource owner `Narek1990`, **only** repository `Armtournest`, Repository permissions → **Contents: Read and write**. Set type **Sensitive**.
 
-Open https://github.com/settings/developers → OAuth Apps → New OAuth App:
+Create restricted token: https://github.com/settings/personal-access-tokens/new . Choose a reasonable expiration and renew before expiry. The existing variables `CMS_BASE_URL=https://cms.armtournest.com` and `CMS_SESSION_KEY` are already present; preserve them. After saving secrets, **redeploy Production**.
 
-- Application name: ArmTourNest Content Studio
-- Homepage URL: `https://cms.armtournest.com`
-- Authorization callback URL: `https://cms.armtournest.com/api/callback`
+**Do not send passwords or the GitHub token through chat**, and never put them in repository source or public variables. GitHub OAuth Client ID/Secret are no longer required; the old OAuth callback is disabled.
 
-Use the OAuth Client ID and Client Secret as *encrypted Vercel environment variables*; do not add them to the repository. The authorization requests `public_repo` (GitHub public repository read/write) and restricts access to the existing repository owner.
+## Staff workflow
 
-### DNS
+Open https://cms.armtournest.com, sign in with the username and password provided by the owner. Use the left menu for Tours, Rental cars, Transfers, Hotels, Website pages, and Site settings. Edit fields, images, prices and EN/RU/HY translations, then click Save. A production deployment is triggered automatically. No GitHub account is needed.
 
-In Cloudflare add one DNS-only CNAME record named `cms` pointing to the exact CNAME target shown in Vercel **Project → Settings → Domains**. Do not proxy the hostname until SSL is working.
+## Security / limitations
 
-### Editors
+Password, token and session key remain in Vercel server-side environment variables. Encrypted AES-256-GCM HttpOnly, Secure, SameSite=Lax cookies expire after four hours. POST endpoints enforce origin checks and there is best-effort per-instance login throttling. **Enable a Vercel Firewall rate-limit rule on the login endpoint** before sharing widely; memory throttling is not distributed between serverless instances. Changing the password or publishing token invalidates previous sessions.
 
-- Edit Tours, Cars, Transfers, Hotels, Website Pages, Site Settings.
-- Preview current images, upload optimized photos, and edit English / Russian / Armenian.
-- Save writes only to GitHub `main` with the GitHub file SHA as optimistic concurrency control.
-- Image upload commits media separately; save the entry to reference the uploaded image.
-- The public site includes independent image validation and build optimization.
+Current implementation has **one editor account**; no per-person audit trail, self-service password recovery, or separate permission roles. Use a designated editor with a unique password. For larger teams, add a managed identity provider.
 
-### Security and operational notes
-
-- No unauthenticated content access.
-- AES-256-GCM encrypted short-lived HTTP-only Secure session cookie, SameSite=Lax.
-- OAuth CSRF state validation; write requests enforce same-origin.
-- Protect the GitHub OAuth Client Secret and CMS_SESSION_KEY.
-- CMS is a bespoke independent admin UI, **not a redeployment of the upstream Pages CMS app**. The existing Pages CMS remains available as a fallback.
-- If you change the domain, update `CMS_BASE_URL` and the OAuth App callback URL together.
+Cloudflare CNAME for `cms` points to `46a5d5d45a8cd017.vercel-dns-017.com` (DNS only). The public website stays separate.

@@ -1,5 +1,5 @@
 import crypto from 'node:crypto';
-import { OWNER, REPO, BRANCH, TYPES, safeId, csrf, requireAdmin, github, reply, pathFor, readFile, message } from '../lib/server.mjs';
+import { OWNER, REPO, BRANCH, TYPES, safeId, csrf, requireAdmin, github, reply, pathFor, readFile, message, serviceToken } from '../lib/server.mjs';
 
 const allowedMime = new Set(['image/png', 'image/jpeg', 'image/webp']);
 const entries = ['cars','tours','transfers','hotels','pages'];
@@ -81,17 +81,17 @@ export default async function handler(req,res) {
       const id=req.query.id;
       if(id || type==='site') {
         const path=pathFor(type,type==='site'?'site':String(id));
-        const result=await readFile(s.token,path);
+        const result=await readFile(serviceToken(),path);
         return reply(res,200,{id:type==='site'?'site':String(id),...result});
       }
-      return reply(res,200,{rows:await list(s.token,type)});
+      return reply(res,200,{rows:await list(serviceToken(),type)});
     }
     if(req.method==='POST') {
       if(!csrf(req))return reply(res,403,{error:'Invalid origin'});
       const body=typeof req.body==='string'?JSON.parse(req.body):req.body;
       if(!body||typeof body!=='object')return reply(res,400,{error:'Invalid request'});
-      if(body.action==='save')return reply(res,200,await save(s.token,body));
-      if(body.action==='upload')return reply(res,200,await upload(s.token,body));
+      if(body.action==='save')return reply(res,200,await save(serviceToken(),body));
+      if(body.action==='upload')return reply(res,200,await upload(serviceToken(),body));
       return reply(res,400,{error:'Unknown action'});
     }
     return reply(res,405,{error:'Method not allowed'});

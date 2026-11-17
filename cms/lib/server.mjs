@@ -7,7 +7,13 @@ export const BASE_URL = process.env.CMS_BASE_URL || 'https://cms.armtournest.com
 export const TYPES = new Set(['cars', 'tours', 'transfers', 'hotels', 'pages', 'site']);
 
 const key = () => crypto.createHash('sha256').update(process.env.CMS_SESSION_KEY || '').digest();
-export const ready = () => Boolean(process.env.GITHUB_CLIENT_ID && process.env.GITHUB_CLIENT_SECRET && process.env.CMS_SESSION_KEY && process.env.CMS_BASE_URL);
+export const ready = () => Boolean(
+ process.env.CMS_EDITOR_USERNAME && (process.env.CMS_EDITOR_PASSWORD||'').length>=14 &&
+ process.env.CMS_GITHUB_TOKEN && (process.env.CMS_SESSION_KEY||'').length>=32 && process.env.CMS_BASE_URL);
+export const serviceToken = () => process.env.CMS_GITHUB_TOKEN;
+export const authVersion = () => crypto.createHash('sha256')
+ .update([process.env.CMS_EDITOR_USERNAME||'',process.env.CMS_EDITOR_PASSWORD||'',process.env.CMS_GITHUB_TOKEN||''].join(':'))
+ .digest('hex').slice(0,24);
 export function cookie(req, name) {
   const raw = String(req.headers.cookie || '').split(';').map(s => s.trim()).find(s => s.startsWith(name + '='));
   return raw ? decodeURIComponent(raw.slice(name.length + 1)) : '';
@@ -31,7 +37,7 @@ export function decrypt(ciphertext) {
     dec.setAuthTag(raw.subarray(12,28));
     const data = Buffer.concat([dec.update(raw.subarray(28)), dec.final()]);
     const value = JSON.parse(data.toString('utf8'));
-    if (typeof value.exp !== 'number' || value.exp < Date.now() || value.user !== OWNER || typeof value.token !== 'string') return null;
+    if (typeof value.exp !== 'number' || value.exp < Date.now() || value.user !== process.env.CMS_EDITOR_USERNAME || value.version !== authVersion()) return null;
     return value;
   } catch (_) { return null; }
 }
