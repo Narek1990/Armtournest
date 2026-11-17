@@ -16,3 +16,33 @@
 .image-url-details summary{cursor:pointer;color:#247d75;font-weight:700;margin-bottom:10px}
 .image-url-details .control{font-size:12px;overflow-wrap:anywhere}
 .upload-action{cursor:pointer}
+/* Same 16:9 crop as ArmTourNest listing card and detail cover. */
+.image-preview.cover-ratio-preview{
+  width:min(100%,520px);
+  max-width:100%;
+  aspect-ratio:16 / 9;
+  height:auto;
+  min-height:0;
+  display:block;
+  overflow:hidden;
+  border-radius:12px;
+  background:#edf2f5;
+}
+.image-preview.cover-ratio-preview img{
+  width:100%;height:100%;
+  max-height:none;max-width:100%;
+  object-fit:cover;object-position:center center;
+  display:block;
+}
+.image-preview.cover-ratio-preview .photo-empty{
+  display:grid;place-items:center;
+  width:100%;height:100%;
+}
+.cover-help,.photo-cover-tip{
+  display:block;
+  color:#526e7b;
+  font-size:12px;
+  line-height:1.6;
+  margin:2px 0 10px;
+}
+.photo-cover-tip{max-width:640px;margin:4px 0 15px;}

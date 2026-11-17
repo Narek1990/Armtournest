@@ -81,7 +81,11 @@ function field(value,key,path,depth=0) {
  const attr='data-path="'+pathAttr(path)+'"';
  if(depth>8)return '<p class="code-note">Слишком много вложенных полей</p>';
  if(isLocalized(value)) return '<div class="field"><label>'+h(title(key))+'</label><div class="langbox"><div class="langtabs">'+Object.entries(LABELS).map(([k,label])=>'<button type="button" class="langbtn '+(S.lang===k?'active':'')+'" data-language="'+k+'">'+h(label)+'</button>').join('')+'</div>'+field(value[S.lang]??'',S.lang,[...path,S.lang],depth+1)+'</div></div>';
- if(Array.isArray(value))return '<fieldset class="group"><legend>'+h(title(key))+' ('+value.length+')</legend>'+value.map((item,index)=>'<div class="listrow"><div class="listhead"><b>'+(path.at(-1)==='images'||path.at(-1)==='gallery'?'Фото ':'Элемент ')+(index+1)+'</b><button class="btn small danger" data-remove="'+pathAttr([...path,index])+'">Удалить</button></div>'+field(item,String(index),[...path,index],depth+1)+'</div>').join('')+'<button class="btn small" data-add="'+pathAttr(path)+'">＋ Добавить</button></fieldset>';
+ if(Array.isArray(value))return '<fieldset class="group"><legend>'+h(title(key))+' ('+value.length+')</legend>'+
+ (S.area==='cars'&&key==='images'?'<p class="photo-cover-tip">Первое фото используется <b>одновременно</b> в карточке автомобиля и на странице. Оба кадра — <b>16:9</b>. Дополнительные фото необязательны.</p>':'')+
+ (S.area==='cars'&&key==='images'&&value.length===0?
+ '<label class="btn small upload-action">Загрузить основное фото<input type="file" accept="image/jpeg,image/png,image/webp" data-upload="'+pathAttr([...path,0])+'" hidden></label>':'')+
+ value.map((item,index)=>'<div class="listrow"><div class="listhead"><b>'+(path.at(-1)==='images'||path.at(-1)==='gallery'?'Фото ':'Элемент ')+(index+1)+'</b><button class="btn small danger" data-remove="'+pathAttr([...path,index])+'">Удалить</button></div>'+field(item,String(index),[...path,index],depth+1)+'</div>').join('')+'<button class="btn small" data-add="'+pathAttr(path)+'">＋ Добавить</button></fieldset>';
  if(value&&typeof value==='object')return '<fieldset class="group"><legend>'+h(title(key))+'</legend>'+Object.entries(value).map(([k,v])=>field(v,k,[...path,k],depth+1)).join('')+'</fieldset>';
  if(typeof value==='boolean')return '<label class="field-check"><input type="checkbox" '+attr+' '+(value?'checked':'')+'>'+h(title(key))+'</label>';
  const isImage=['image','heroImage','logo','background'].includes(key)||((key==='images'||key==='gallery')&&typeof value==='string')||(typeof value==='string'&&path.some(p=>p==='images'||p==='gallery'));
@@ -93,12 +97,14 @@ function field(value,key,path,depth=0) {
  const multiline=typeof value==='string'&&(value.length>170||['summary','description','body','imageUsage','message'].includes(key));
  let control=multiline?'<textarea class="control" rows="4" '+attr+'>'+h(value)+'</textarea>':'<input class="control" '+attr+' type="text" value="'+h(value??'')+'" '+(key==='id'&&S.sha?'readonly':'')+'>';
  if(isImage){
- const preview='<div class="image-preview">'+image(String(value||''),label)+'</div>';
+ const isCover=(S.area==='cars'&&path[0]==='images'&&path[1]===0)||(S.area==='tours'&&path[0]==='image');
+ const preview='<div class="image-preview'+(isCover?' cover-ratio-preview':'')+'">'+image(String(value||''),label)+'</div>';
+ const coverHelp=isCover?'<small class="cover-help">Один кадр 16:9: так фото будет выглядеть и в каталоге, и на странице.</small>':'';
  const picker='<div class="upload-row"><label class="btn small upload-action">'+
  (value?'Заменить фото':'Загрузить фото')+
  '<input type="file" accept="image/jpeg,image/png,image/webp" data-upload="'+pathAttr(path)+'" hidden></label>'+
  '<small>JPG, PNG, WebP · до 8 МБ · сжатие автоматически</small></div>';
- return '<div class="field image-field"><label>'+h(label)+'</label>'+preview+picker+
+ return '<div class="field image-field"><label>'+h(isCover?'Главное фото · каталог и страница':label)+'</label>'+preview+coverHelp+picker+
  '<details class="image-url-details"><summary>Вставить ссылку на изображение</summary>'+control+'</details></div>';
 }
  return '<div class="field"><label>'+h(label)+'</label>'+control+'</div>';
