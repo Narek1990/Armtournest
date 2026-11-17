@@ -16,7 +16,7 @@ const LABELS={en:'English',ru:'Русский',hy:'Հայերեն'};
 const SELECTIONS={status:['draft','published','archived'],category:{cars:['sedan','suv','economy','premium','compact','minivan','van','luxury','4x4'],tours:['private','group','outgoing']},currency:['AMD','USD','EUR'],transmission:['automatic','manual'],drive:['AWD','4WD','FWD','RWD','2WD'],fuel:['petrol','diesel','hybrid','electric'],unit:['person','group'],defaultLanguage:['en','ru','hy'],bookingMode:['enquiry']};
 const S={auth:null,area:'dashboard',rows:[],cache:{},query:'',editor:null,id:null,sha:null,tab:'main',lang:'en',busy:false,dirty:false,editing:false};
 const el=(q)=>document.querySelector(q);
-const h=(s)=>String(s??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','&#39;'}[ch]||'&#39;'));
+const h=(s)=>String(s??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]||'&#39;'));
 const title=(key)=>TITLES[key] || String(key).replace(/([A-Z])/g,' $1').replace(/^./,v=>v.toUpperCase());
 const req=async(url,opts)=>{const r=await fetch(url,{credentials:'same-origin',headers:{'Accept':'application/json',...(opts?.body?{'Content-Type':'application/json'}:{})},...opts});const j=await r.json().catch(()=>({}));if(!r.ok)throw new Error(j.error||'Request failed');return j};
 const notice=(message,error=false)=>{toastEl.textContent=message;toastEl.className='show'+(error?' error':'');clearTimeout(notice.timer);notice.timer=setTimeout(()=>toastEl.className='',3500)};
