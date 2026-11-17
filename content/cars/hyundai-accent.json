@@ -15,13 +15,13 @@
   "fuel": "petrol",
   "doors": 5,
   "images": [
-    "https://commons.wikimedia.org/wiki/Special:FilePath/Hyundai%20Accent%20Sedan%20RB.jpg?width=1280"
+    "/media/cms-cars-1794945401363-f282d64d.webp"
   ],
   "imageUsage": "Representative photograph of the named vehicle model; not a confirmed rental fleet vehicle",
   "pricing": {
     "currency": "AMD",
-    "dailyRate": 15.999,
-    "minimumDays": 1,
+    "dailyRate": 450,
+    "minimumDays": 45,
     "isIndicative": true
   },
   "pickupLocations": [
